@@ -1,0 +1,31 @@
+---
+heroTitle: "Building transparency for Latin America's textile industry"
+heroDescription: "Textile Trace Latam is developing a Digital Product Passport (DPP) system that enables full supply chain traceability for textile and garment products across Latin America. We help brands, manufacturers, and consumers access verified data about how products are made — from raw fiber to finished garment."
+heroImages:
+  - src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?ixlib=rb-4.0.3&auto=format&fit=crop&h=528&q=80"
+    alt: "Cotton field harvest"
+  - src: "https://images.unsplash.com/photo-1605087880595-8cc6db61f3c6?ixlib=rb-4.0.3&auto=format&fit=crop&h=528&q=80"
+    alt: "Textile manufacturing"
+  - src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&h=528&q=80"
+    alt: "Supply chain logistics"
+  - src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&h=528&q=80"
+    alt: "Digital technology"
+missionTitle: "Our mission"
+missionIntro: "We believe every garment has a story worth telling. Our mission is to bring radical transparency to the textile supply chain in Latin America through Digital Product Passports — giving consumers, brands, and regulators a clear view of a product's journey from fiber to finished piece."
+missionBody: "As the EU Digital Product Passport regulation reshapes global trade, Latin American textile producers face both a challenge and an opportunity. Textile Trace Latam bridges that gap by providing an accessible, standards-compliant DPP platform tailored to the needs and realities of the region's supply chains. We work directly with producers, manufacturers, and brands to capture verified data at every step — composition, environmental impact, labor conditions, and certifications."
+stats:
+  - value: "150+"
+    label: "Supply chain data points tracked"
+  - value: "6"
+    label: "Countries across LATAM"
+  - value: "100%"
+    label: "EU DPP regulation compliant"
+teamImage:
+  src: "https://unsplash.com/photos/Ag4HXB4bgpw/download?ixid=rb-4.0.3&force=true&w=2832"
+  alt: "Two fashion designers collaborate on a new pattern"
+  credit: "Photo by Vitaly Gariev on Unsplash"
+valuesHeading: "Our values"
+valuesSubheading: "The principles that guide how we build our platform and work with partners across the textile supply chain."
+teamHeading: "Our team"
+teamSubheading: "A small, focused team passionate about bringing traceability and transparency to Latin America's textile industry."
+---
