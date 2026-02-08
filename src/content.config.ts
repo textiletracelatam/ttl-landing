@@ -1,6 +1,51 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+const home = defineCollection({
+  loader: glob({ pattern: "home.md", base: "src/content/home" }),
+  schema: z.object({
+    heroTagline: z.string(),
+    heroHeadline: z.string(),
+    heroDescription: z.string(),
+    ctaPrimary: z.string(),
+    ctaGhost: z.string(),
+    trustLogos: z.array(
+      z.object({
+        name: z.string(),
+        logo: z.string(),
+      })
+    ),
+    featuresHeading: z.string(),
+    featuresDescription: z.string(),
+    features: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+        icon: z.string(),
+      })
+    ),
+    howItWorksHeading: z.string(),
+    howItWorksSteps: z.array(
+      z.object({
+        step: z.number(),
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+    statsHeading: z.string(),
+    stats: z.array(
+      z.object({
+        value: z.string(),
+        label: z.string(),
+      })
+    ),
+    ctaHeading: z.string(),
+    ctaDescription: z.string(),
+    ctaPrimaryText: z.string(),
+    ctaGhostText: z.string(),
+  }),
+});
+
 const pages = defineCollection({
   loader: glob({ pattern: "about.md", base: "src/content/about" }),
   schema: z.object({
@@ -51,4 +96,4 @@ const team = defineCollection({
   }),
 });
 
-export const collections = { pages, values, team };
+export const collections = { home, pages, values, team };
