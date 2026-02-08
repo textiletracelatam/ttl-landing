@@ -4,17 +4,21 @@ import { glob } from "astro/loaders";
 const home = defineCollection({
   loader: glob({ pattern: "home.md", base: "src/content/home" }),
   schema: z.object({
-    heroTagline: z.string(),
     heroHeadline: z.string(),
+    heroTagline: z.string(),
     heroDescription: z.string(),
+    heroImage: z.string().optional(),
     ctaPrimary: z.string(),
     ctaGhost: z.string(),
+    trustTagline: z.string().optional(),
+    trustHeading: z.string().optional(),
     trustLogos: z.array(
       z.object({
         name: z.string(),
         logo: z.string(),
       })
     ),
+    featuresTagline: z.string().optional(),
     featuresHeading: z.string(),
     featuresDescription: z.string(),
     features: z.array(
@@ -32,6 +36,10 @@ const home = defineCollection({
         description: z.string(),
       })
     ),
+    aboutTagline: z.string().optional(),
+    aboutHeading: z.string().optional(),
+    aboutDescription: z.string().optional(),
+    aboutImage: z.string().optional(),
     statsHeading: z.string(),
     stats: z.array(
       z.object({

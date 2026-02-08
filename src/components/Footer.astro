@@ -1,0 +1,50 @@
+---
+import { appConfig } from "../config";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-neutral-100 dark:bg-neutral-900">
+  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-10 sm:py-12 lg:px-8">
+    <!-- Logo -->
+    <div class="flex justify-center mb-8">
+      <img
+        src={appConfig.logo}
+        alt={appConfig.name}
+        width="360"
+        height="120"
+        class="h-30 w-auto object-contain"
+      />
+    </div>
+
+    <nav
+      aria-label="Footer"
+      class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6"
+    >
+      {appConfig.footerLinks.map((item) => (
+        <a
+          href={item.href}
+          class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+        >
+          {item.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="mt-16 flex justify-center gap-x-10">
+      {appConfig.socials.map((item) => (
+        <a
+          href={item.href}
+          class="text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-white"
+        >
+          <span class="sr-only">{item.name}</span>
+          <Fragment set:html={item.icon} />
+        </a>
+      ))}
+    </div>
+
+    <p class="mt-10 text-center text-sm/6 text-neutral-600 dark:text-neutral-400">
+      &copy; {currentYear} {appConfig.name}. All rights reserved.
+    </p>
+  </div>
+</footer>

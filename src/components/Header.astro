@@ -13,14 +13,31 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 <header class="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
   <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-14 sm:h-16 items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="shrink-0 text-lg font-bold text-primary-700 dark:text-primary-300">
-        Textile Trace Latam
+      <!-- Desktop nav (left) -->
+      <div class="hidden lg:flex lg:flex-1 lg:items-center lg:gap-1">
+        {navLinks.slice(0, Math.ceil(navLinks.length / 2)).map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+              currentPath === link.href
+                ? "text-primary-700 dark:text-primary-300"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white",
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Logo (center on desktop, left on mobile) -->
+      <a href="/" class="shrink-0">
+        <img src="https://xhfttqvimvxbjvjpxvjb.supabase.co/storage/v1/object/public/temp_ttl/ttl_logo.png" alt="Textile Trace Latam" class="h-10 w-auto object-contain" />
       </a>
 
-      <!-- Desktop nav -->
-      <div class="hidden lg:flex lg:items-center lg:gap-1">
-        {navLinks.map((link) => (
+      <!-- Desktop nav (right) -->
+      <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-1">
+        {navLinks.slice(Math.ceil(navLinks.length / 2)).map((link) => (
           <a
             href={link.href}
             class:list={[
@@ -63,7 +80,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     <div class="divide-y divide-neutral-200 dark:divide-neutral-700 rounded-lg bg-white dark:bg-neutral-800 shadow-lg ring-1 ring-neutral-900/10 dark:ring-neutral-700">
       <div class="pt-3 pb-2">
         <div class="flex items-center justify-between px-4">
-          <span class="text-lg font-bold text-primary-700 dark:text-primary-300">Textile Trace Latam</span>
+          <img src="https://xhfttqvimvxbjvjpxvjb.supabase.co/storage/v1/object/public/temp_ttl/ttl_logo.png" alt="Textile Trace Latam" class="h-10 w-auto object-contain" />
           <button
             id="menu-close-btn"
             type="button"
