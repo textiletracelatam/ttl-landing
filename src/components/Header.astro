@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Partners", href: "/partners" },
 ];
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
 <header class="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname;
     <div class="flex h-14 sm:h-16 items-center justify-between">
       <!-- Logo -->
       <a href="/" class="shrink-0 text-lg font-bold text-primary-700 dark:text-primary-300">
-        TTL
+        Textile Trace Latam
       </a>
 
       <!-- Desktop nav -->
@@ -63,7 +63,7 @@ const currentPath = Astro.url.pathname;
     <div class="divide-y divide-neutral-200 dark:divide-neutral-700 rounded-lg bg-white dark:bg-neutral-800 shadow-lg ring-1 ring-neutral-900/10 dark:ring-neutral-700">
       <div class="pt-3 pb-2">
         <div class="flex items-center justify-between px-4">
-          <span class="text-lg font-bold text-primary-700 dark:text-primary-300">TTL</span>
+          <span class="text-lg font-bold text-primary-700 dark:text-primary-300">Textile Trace Latam</span>
           <button
             id="menu-close-btn"
             type="button"
