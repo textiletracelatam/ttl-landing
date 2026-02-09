@@ -42,7 +42,7 @@ howItWorksSteps:
     description: "Da vida a tus productos mostrando quién los hace, de dónde vienen sus materiales y qué los hace únicos. Convierte la información en una experiencia transparente que conecta con clientes y consumidores."
   - step: 2
     title: "Conecta tu cadena y captura datos verificados"
-    description: "Invita a proveedores de todos los niveles a unirse a la plataforma. Nuestra incorporación guiada permite que incluso los productores más pequeños empiecen fácilmente. Recopila materiales, procesos y certificaciones directamente desde cada proveedor, vinculando toda la información al producto."
+    description: "Invita a proveedores de todos los niveles a unirse a la plataforma. Nuestra incorporación guiada facilita que incluso los productores más pequeños compartan datos. Recopilamos materiales, procesos y certificaciones, vinculando toda la información al producto"
   - step: 3
     title: "Generamos tus Pasaportes Digitales de Producto"
     description: "Nos encargamos de crear Pasaportes Digitales de Producto completos y listos para compartir con reguladores, clientes y consumidores — impulsando confianza, cumplimiento y nuevas oportunidades circulares."
@@ -50,18 +50,18 @@ howItWorksSteps:
 aboutTagline: "Nuestra misión"
 aboutHeading: "¿Qué hacemos en Textile Trace LATAM?"
 aboutDescription: "En Textile Trace LATAM buscamos acompañar a las marcas en el proceso de construir y comunicar la historia viva detrás de sus productos, integrando la trazabilidad como parte de su estrategia de sostenibilidad y transparencia."
-aboutImage: "https://images.unsplash.com/photo-1558171813-4c088753af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+aboutImage: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/info%20dpp.png"
 
 statsHeading: "Diseñado para la escala de las cadenas de suministro latinoamericanas"
 stats:
   - value: "Historia"
     label: "Nos centramos en contar la historia viva de tu producto"
-  - value: "Colombia y Latinoamérica"
-    label: "Apoyamos la sostenibilidad en todo el territorio"
-  - value: "100%"
-    label: "Colombiano"
   - value: "3"
     label: "Posibles modelos según la necesidad de tu empresa"
+  - value: "100%"
+    label: "Colombiano"
+  - value: "Colombia y Latinoamérica"
+    label: "Apoyamos la sostenibilidad en todo el territorio"
 
 ctaHeading: "¿Listo para hacer tu cadena de suministro transparente?"
 ctaDescription: "Únete a las marcas y fabricantes de América Latina que están construyendo confianza a través de la trazabilidad. Comienza con Textile Trace LATAM hoy."
