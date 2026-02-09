@@ -94,6 +94,18 @@ const values = defineCollection({
   }),
 });
 
+const blog = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "src/content/blog" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    author: z.string(),
+    image: z.string(),
+    category: z.string(),
+  }),
+});
+
 const team = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "src/content/about/team" }),
   schema: z.object({
@@ -104,4 +116,4 @@ const team = defineCollection({
   }),
 });
 
-export const collections = { home, pages, values, team };
+export const collections = { home, pages, values, team, blog };

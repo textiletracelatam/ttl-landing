@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getEntry } from "astro:content";
+import { getEntry, getCollection } from "astro:content";
 
 const home = await getEntry("home", "home");
 const { data } = home;
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 5);
 ---
 
 <Layout title="Home">
@@ -55,7 +59,7 @@ const { data } = home;
     </div>
 
     <!-- Trust bar -->
-    <div class="bg-white py-24 sm:py-32 dark:bg-neutral-900">
+    <div class="bg-white py-16 sm:py-20 dark:bg-neutral-900">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:max-w-none">
           <div class="text-center">
@@ -74,7 +78,7 @@ const { data } = home;
     </div>
 
     <!-- Features bento grid -->
-    <div class="bg-neutral-50 py-24 sm:py-32 dark:bg-neutral-900">
+    <div class="bg-neutral-50 py-16 sm:py-20 dark:bg-neutral-900">
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <h2 class="text-center text-base/7 font-semibold text-primary-600 dark:text-primary-400">{data.featuresTagline}</h2>
         <p class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-neutral-900 sm:text-5xl dark:text-white">{data.featuresHeading}</p>
@@ -168,15 +172,16 @@ const { data } = home;
     </div>
 
     <!-- How it works section -->
-    <div class="bg-neutral-50 py-24 sm:py-32 dark:bg-neutral-900" id="how-it-works">
+    <div class="bg-primary-50 py-16 sm:py-20 dark:bg-neutral-900" id="how-it-works">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-          <h2 class="text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{data.howItWorksHeading}</h2>
+          <p class="text-base/7 font-semibold text-primary-600 dark:text-primary-400">Simple y efectivo</p>
+          <h2 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{data.howItWorksHeading}</h2>
         </div>
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl class="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
             {data.howItWorksSteps.map((step) => (
-              <div class="flex flex-col rounded-2xl border border-neutral-200 bg-white p-8 dark:border-neutral-800 dark:bg-neutral-800/50">
+              <div class="flex flex-col rounded-2xl border border-primary-100 bg-white p-8 dark:border-neutral-700 dark:bg-neutral-800">
                 <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-neutral-900 dark:text-white">
                   <div class="flex size-10 items-center justify-center rounded-full bg-primary-500 text-sm font-bold text-white">
                     {step.step}
@@ -215,8 +220,54 @@ const { data } = home;
       </div>
     </div>
 
+    <!-- Blog section -->
+    <div class="bg-background py-16 sm:py-20">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <p class="text-base/7 font-semibold text-primary-600 dark:text-primary-400">Nuestro blog</p>
+          <h2 class="mt-2 text-4xl font-semibold tracking-tight text-balance text-neutral-900 sm:text-5xl dark:text-white">Artículos y novedades</h2>
+          <p class="mt-2 text-lg/8 text-neutral-600 dark:text-neutral-300">Explora las últimas tendencias en trazabilidad, sostenibilidad y pasaportes digitales.</p>
+        </div>
+        <div class="mt-16 -mx-6 px-6 lg:-mx-8 lg:px-8 overflow-x-auto">
+          <div class="flex gap-x-8" style="min-width: max-content;">
+            {posts.map((post) => (
+              <article class="flex w-80 shrink-0 flex-col items-start justify-between">
+                <div class="relative w-full">
+                  <img src={post.data.image} alt={post.data.title} class="aspect-video w-full rounded-2xl bg-neutral-100 object-cover dark:bg-neutral-800" />
+                  <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-neutral-900/10 dark:inset-ring-white/10"></div>
+                </div>
+                <div class="flex w-full grow flex-col justify-between">
+                  <div class="mt-8 flex items-center gap-x-4 text-xs">
+                    <time datetime={post.data.date.toISOString()} class="text-neutral-500 dark:text-neutral-400">
+                      {post.data.date.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
+                    </time>
+                    <span class="relative z-10 rounded-full bg-primary-50 px-3 py-1.5 font-medium text-primary-700 dark:bg-primary-500/10 dark:text-primary-400">{post.data.category}</span>
+                  </div>
+                  <div class="group relative grow">
+                    <h3 class="mt-3 text-lg/6 font-semibold text-neutral-900 group-hover:text-neutral-600 dark:text-white dark:group-hover:text-neutral-300">
+                      <a href={`/blog/${post.id}`}>
+                        <span class="absolute inset-0"></span>
+                        {post.data.title}
+                      </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm/6 text-neutral-600 dark:text-neutral-400">{post.data.description}</p>
+                  </div>
+                  <div class="relative mt-8 flex items-center gap-x-4 justify-self-end">
+                    <p class="text-sm font-semibold text-neutral-900 dark:text-white">{post.data.author}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <div class="mt-16 text-center">
+          <a href="/blog" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">Ver todos los artículos <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+
     <!-- CTA section -->
-    <div class="py-24 sm:py-32">
+    <div class="bg-white py-16 sm:py-20 dark:bg-neutral-900">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{data.ctaHeading}</h2>
