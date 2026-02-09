@@ -1,6 +1,6 @@
 ---
-name: "Team Member 2"
+name: "Santiago Múnera"
 role: "Co-Founder / CTO"
-image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+image: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/santi.png"
 order: 2
 ---
