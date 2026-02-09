@@ -5,9 +5,18 @@ import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
+  description?: string;
+  ogImage?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Trazabilidad y pasaportes digitales para la industria textil en Latinoamérica.",
+  ogImage = "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/mvp3/ttl_logo.png",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro.site).toString();
 ---
 
 <html lang="en">
@@ -17,6 +26,15 @@ const { title } = Astro.props;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+
+		<!-- Open Graph / WhatsApp -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={`${title} | Textile Trace Latam`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+
 		<title>{title} | Textile Trace Latam</title>
 	</head>
 	<body class="min-h-screen bg-background text-foreground">
