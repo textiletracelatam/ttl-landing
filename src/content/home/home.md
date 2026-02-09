@@ -1,7 +1,7 @@
 ---
 heroHeadline: "Pasaportes digitales de producto (DPP)"
 heroTagline: "Una herramienta digital que da vida a la historia de un producto."
-heroDescription: "Reúne y comunica información clave a lo largo de todo su ciclo de vida, desde el origen de los materiales y los procesos de fabricación, hasta su uso, reparación y fin de vida. A través del DPP, las marcas pueden mejorar la trazabilidad, cumplir con nuevas normativas y comunicar de forma transparente la historia y el impacto de cada producto reforzando su propuesta de valor al consumidor"
+heroDescription: "Reúne y comunica información clave a lo largo de todo su ciclo de vida, desde el origen de los materiales y los procesos de fabricación, hasta su uso, reparación y fin de vida. A través del DPP, las marcas pueden mejorar la trazabilidad, cumplir con nuevas normativas y comunicar la historia viva y el impacto de cada producto reforzando su propuesta de valor al consumidor"
 heroImage: "https://unsplash.com/photos/Ag4HXB4bgpw/download?ixid=rb-4.0.3&force=true&w=2832"
 ctaPrimary: "Quiero saber más"
 ctaGhost: "Quiero hacer mi DPP"
@@ -18,7 +18,7 @@ trustLogos:
   - name: "GOTS"
     logo: "gots.svg"
 
-featuresTagline: "Trazabilidad transparente"
+featuresTagline: "Trazabilidad transparente, contando historias hilo a hilo"
 featuresHeading: "Nuestros ejes de acción"
 featuresDescription: ""
 features:
@@ -38,14 +38,17 @@ features:
 howItWorksHeading: "Cómo funciona"
 howItWorksSteps:
   - step: 1
-    title: "Conecta tu cadena de suministro"
+    title: "Cuenta tu historia"
     description: "Invita a proveedores de cada nivel a unirse a la plataforma. Nuestra incorporación guiada facilita que incluso los productores más pequeños comiencen a capturar datos."
   - step: 2
-    title: "Captura datos verificados"
-    description: "Cada proveedor registra materiales, procesos y certificaciones a medida que los productos avanzan en la cadena. Los datos se verifican y vinculan automáticamente."
+    title: "Conecta tu cadena de suministro"
+    description: "Invita a proveedores de cada nivel a unirse a la plataforma. Nuestra incorporación guiada facilita que incluso los productores más pequeños comiencen a capturar datos."
   - step: 3
+    title: "Captura datos verificados"
+    description: "Registra materiales de cada proveedor, procesos y certificaciones a medida que tus productos avanzan en la cadena. Los datos se vinculan directamente a tu producto."
+  - step: 4
     title: "Genera pasaportes de producto"
-    description: "Con un solo clic, genera un Pasaporte Digital de Producto completo — listo para compartir con reguladores, minoristas o consumidores."
+    description: "Genera un Pasaporte Digital de Producto completo listo para compartir con reguladores, clientes y consumidores."
 
 aboutTagline: "Nuestra misión"
 aboutHeading: "¿Qué hacemos en Textile Trace LATAM?"
@@ -59,12 +62,12 @@ stats:
   - value: "6"
     label: "Países en LATAM"
   - value: "100%"
-    label: "Cumplimiento EU DPP"
+    label: "Colombiano"
   - value: "< 5 min"
     label: "Tiempo de incorporación de proveedor"
 
 ctaHeading: "¿Listo para hacer tu cadena de suministro transparente?"
-ctaDescription: "Únete a las marcas y fabricantes de América Latina que están construyendo confianza a través de la trazabilidad. Comienza con Textile Trace Latam hoy."
+ctaDescription: "Únete a las marcas y fabricantes de América Latina que están construyendo confianza a través de la trazabilidad. Comienza con Textile Trace LATAM hoy."
 ctaPrimaryText: "Solicitar una demo"
 ctaGhostText: "Hablar con nuestro equipo"
 ---
