@@ -30,7 +30,7 @@ features:
     icon: "chain"
   - title: "Acompañamiento a marcas"
     description: "Co-creamos el storytelling de cada prenda y articulamos los datos técnicos con la historia humana."
-    icon: "brands"
+    icon: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/acompanamos%20marcas.png"
   - title: "Integración tecnológica"
     description: "Sistema que conecta información de producción, sostenibilidad y procedencia en una sola plataforma."
     icon: "tech"
