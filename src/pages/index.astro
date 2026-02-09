@@ -32,8 +32,8 @@ const posts = (await getCollection("blog"))
         <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
           <img src="https://d1yei2z3i6k35z.cloudfront.net/15861133/69715e5480fa7_logonegrosinfondo.png" alt="Textile Trace Latam" class="h-30 w-auto object-contain" />
           <h1 class="mt-10 text-5xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-7xl dark:text-white">{data.heroHeadline}</h1>
-          <p class="mt-4 text-lg font-semibold text-neutral-800 dark:text-neutral-200">{data.heroTagline}</p>
-          <p class="mt-8 text-lg font-medium text-pretty text-neutral-500 sm:text-xl/8 dark:text-neutral-400">{data.heroDescription}</p>
+          {data.heroTagline && <p class="mt-4 text-lg font-semibold text-neutral-800 dark:text-neutral-200">{data.heroTagline}</p>}
+          {data.heroDescription && <p class="mt-8 text-lg font-medium text-pretty text-neutral-500 sm:text-xl/8 dark:text-neutral-400">{data.heroDescription}</p>}
           <div class="mt-10 flex items-center gap-x-6">
             <a href="#" class="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-400 transition-colors">{data.ctaPrimary}</a>
             <a href="#" class="text-sm/6 font-semibold text-neutral-900 dark:text-white">{data.ctaGhost} <span aria-hidden="true">&rarr;</span></a>
@@ -206,7 +206,11 @@ const posts = (await getCollection("blog"))
           <div class="mx-auto max-w-2xl lg:mr-0 lg:max-w-lg">
             <h2 class="text-base/8 font-semibold text-primary-600 dark:text-primary-400">{data.aboutTagline}</h2>
             <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{data.aboutHeading}</p>
-            <p class="mt-6 text-lg/8 text-neutral-600 dark:text-neutral-300">{data.aboutDescription}</p>
+            <div class="mt-6 space-y-4 text-lg/8 text-neutral-600 dark:text-neutral-300">
+              {data.aboutDescription.split('\n\n').map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
             <dl class="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
               {data.stats.map((stat) => (
                 <div class="flex flex-col gap-y-3 border-l border-neutral-900/10 pl-6 dark:border-white/10">
