@@ -1,6 +1,6 @@
 ---
-title: "Social responsibility"
+title: "Responsabilidad social"
 order: 6
 ---
 
-Fair wages, safe working conditions, and ethical labor practices are core data points in every Digital Product Passport we issue. People matter as much as products.
+Salarios justos, condiciones de trabajo seguras y prácticas laborales éticas son datos fundamentales en cada Pasaporte Digital de Producto que emitimos. Las personas importan tanto como los productos.

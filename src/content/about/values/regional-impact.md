@@ -1,6 +1,6 @@
 ---
-title: "Regional impact"
+title: "Impacto regional"
 order: 2
 ---
 
-Latin America's textile industry has unique strengths and challenges. We design our tools to fit the region's infrastructure, languages, and regulatory landscape.
+La industria textil de América Latina tiene fortalezas y desafíos únicos. Diseñamos nuestras herramientas para adaptarse a la infraestructura, los idiomas y el panorama regulatorio de la región.

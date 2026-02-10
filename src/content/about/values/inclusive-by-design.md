@@ -1,6 +1,6 @@
 ---
-title: "Inclusive by design"
+title: "Inclusión por diseño"
 order: 4
 ---
 
-From smallholder cotton farmers to large-scale manufacturers, our platform is built to be accessible at every level of the supply chain — not just for the biggest players.
+Desde pequeños productores de algodón hasta grandes fabricantes, nuestra plataforma está diseñada para ser accesible en cada nivel de la cadena de suministro — no solo para los actores más grandes.

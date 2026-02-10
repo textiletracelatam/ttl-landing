@@ -1,6 +1,6 @@
 ---
-title: "Standards-first"
+title: "Estándares primero"
 order: 3
 ---
 
-We align with EU DPP regulations, GRS, OEKO-TEX, and other international standards so that the data we capture is globally recognized and trade-ready.
+Nos alineamos con las regulaciones del DPP de la UE, GRS, OEKO-TEX y otros estándares internacionales para que los datos que capturamos sean reconocidos globalmente y estén listos para el comercio.

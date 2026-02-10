@@ -1,6 +1,6 @@
 ---
-title: "Radical transparency"
+title: "Transparencia radical"
 order: 1
 ---
 
-Every claim should be verifiable. We build systems that make supply chain data accessible, auditable, and trustworthy — no greenwashing, no hidden steps.
+Cada afirmación debe ser verificable. Construimos sistemas que hacen los datos de la cadena de suministro accesibles, auditables y confiables — sin greenwashing, sin pasos ocultos.

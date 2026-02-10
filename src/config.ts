@@ -3,10 +3,10 @@ export const appConfig = {
   logo: "https://d1yei2z3i6k35z.cloudfront.net/15861133/69715e5480fa7_logonegrosinfondo.png",
 
   footerLinks: [
-    { name: "About", href: "/about" },
+    { name: "Nosotros", href: "/nosotros" },
     { name: "Blog", href: "/blog" },
-    { name: "Jobs", href: "/jobs" },
-    { name: "Partners", href: "/partners" },
+    { name: "Empleo", href: "/empleo" },
+    { name: "Aliados", href: "/aliados" },
   ],
 
   socials: [

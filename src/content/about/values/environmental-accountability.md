@@ -1,6 +1,6 @@
 ---
-title: "Environmental accountability"
+title: "Responsabilidad ambiental"
 order: 5
 ---
 
-We track water usage, carbon footprint, chemical inputs, and waste generation so brands and consumers can make informed decisions about their environmental impact.
+Rastreamos el uso de agua, la huella de carbono, los insumos químicos y la generación de residuos para que marcas y consumidores puedan tomar decisiones informadas sobre su impacto ambiental.
