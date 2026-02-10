@@ -42,8 +42,19 @@ const { Content } = await render(post);
         <Content />
       </div>
 
+      <!-- CTA -->
+      {post.data.ctaTitle && post.data.ctaMessage && post.data.ctaLink && (
+        <div class="mx-auto mt-16 max-w-3xl rounded-2xl bg-primary-50 px-8 py-12 text-center dark:bg-primary-500/10">
+          <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl dark:text-white">{post.data.ctaTitle}</h2>
+          <p class="mx-auto mt-4 max-w-xl text-base/7 text-neutral-600 dark:text-neutral-400">{post.data.ctaMessage}</p>
+          <div class="mt-8">
+            <a href={post.data.ctaLink} class="rounded-md bg-primary-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">Solicitar una demo</a>
+          </div>
+        </div>
+      )}
+
       <!-- Back link -->
-      <div class="mt-16 text-center">
+      <div class="mt-12 text-center">
         <a href="/blog" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver al blog</a>
       </div>
     </div>

@@ -5,6 +5,9 @@ date: 2025-03-10
 author: "Equipo TTL"
 image: "https://d1yei2z3i6k35z.cloudfront.net/15861133/697594afbabf2_WhatsAppImage2026-01-23at2.39.58PM_1.43_1.png"
 category: "Trazabilidad"
+ctaTitle: "¿Listo para implementar trazabilidad en tu cadena de valor?"
+ctaMessage: "Diseñamos sistemas de trazabilidad pensados para pasaportes digitales. Acompañamos a tu empresa paso a paso hacia la transparencia."
+ctaLink: "#"
 ---
 
 En un mundo donde los consumidores, las autoridades y los mercados exigen cada vez más transparencia, hay una palabra que se vuelve central para las empresas: **trazabilidad**.
