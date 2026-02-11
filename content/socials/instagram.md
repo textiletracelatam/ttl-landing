@@ -1,6 +1,6 @@
 ---
 name: "Instagram"
-href: "#"
+href: "https://www.instagram.com/textiletrace.latam/"
 icon: "/icons/socials/instagram.svg"
-order: 2
+order: 1
 ---
