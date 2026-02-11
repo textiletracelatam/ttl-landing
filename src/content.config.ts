@@ -341,7 +341,7 @@ const servicios = defineCollection({
     monthlyPrice: z.string(),
     annualPrice: z.string(),
     cta: z.string(),
-    featured: z.boolean().optional(),
+    cardColor: z.enum(["white", "primary", "black"]).default("white"),
     order: z.number(),
     features: z.array(z.string()),
   }),

@@ -4,7 +4,7 @@ description: Un DPP ideal para fabricantes de telas e insumos que quieran demost
 monthlyPrice: "$99"
 annualPrice: "$999"
 cta: Contactar ventas
-featured: true
+cardColor: black
 order: 3
 features:
   - Productos ilimitados

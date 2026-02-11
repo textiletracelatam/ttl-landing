@@ -5,6 +5,56 @@ import { getCollection } from "astro:content";
 const servicios = (await getCollection("servicios")).sort(
   (a, b) => a.data.order - b.data.order
 );
+
+type CardColor = "white" | "primary" | "black";
+
+const cardStyles: Record<CardColor, string> = {
+  white: "ring-1 ring-neutral-200 dark:bg-neutral-800/50 dark:ring-white/10",
+  primary: "bg-primary-600 ring-1 ring-primary-600 dark:bg-primary-700 dark:ring-primary-500",
+  black: "bg-neutral-900 ring-1 ring-neutral-900 dark:bg-neutral-800/50 dark:ring-2 dark:ring-primary-500",
+};
+
+const titleStyles: Record<CardColor, string> = {
+  white: "text-neutral-900 dark:text-white",
+  primary: "text-white",
+  black: "text-white dark:text-primary-400",
+};
+
+const descStyles: Record<CardColor, string> = {
+  white: "text-neutral-600 dark:text-neutral-300",
+  primary: "text-primary-100",
+  black: "text-neutral-300",
+};
+
+const priceStyles: Record<CardColor, string> = {
+  white: "text-neutral-900 dark:text-white",
+  primary: "text-white",
+  black: "text-white",
+};
+
+const priceSuffixStyles: Record<CardColor, string> = {
+  white: "text-neutral-600 dark:text-neutral-400",
+  primary: "text-primary-200",
+  black: "text-neutral-300",
+};
+
+const ctaStyles: Record<CardColor, string> = {
+  white: "bg-primary-600 text-white shadow-xs hover:bg-primary-500 focus-visible:outline-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400 dark:focus-visible:outline-primary-500",
+  primary: "bg-white text-primary-700 shadow-xs hover:bg-primary-50 focus-visible:outline-white",
+  black: "bg-white/10 text-white inset-ring inset-ring-white/5 hover:bg-white/20 focus-visible:outline-white/75",
+};
+
+const featureTextStyles: Record<CardColor, string> = {
+  white: "text-neutral-600 dark:text-neutral-300",
+  primary: "text-primary-100",
+  black: "text-neutral-300",
+};
+
+const checkStyles: Record<CardColor, string> = {
+  white: "text-primary-600 dark:text-primary-400",
+  primary: "text-white",
+  black: "text-white",
+};
 ---
 
 <Layout title="Servicios">
@@ -35,31 +85,34 @@ const servicios = (await getCollection("servicios")).sort(
           </fieldset>
         </div>
         <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {servicios.map((servicio) => (
-            <div data-featured={servicio.data.featured ? "true" : undefined} class="group/tier rounded-3xl p-8 ring-1 ring-neutral-200 data-featured:bg-neutral-900 data-featured:ring-neutral-900 xl:p-10 dark:bg-neutral-800/50 dark:ring-white/10 dark:data-featured:bg-neutral-800/50 dark:data-featured:ring-2 dark:data-featured:ring-primary-500">
-              <h3 id={`tier-${servicio.id}`} class="text-lg/8 font-semibold text-neutral-900 group-data-featured/tier:text-white dark:text-white dark:group-data-featured/tier:text-primary-400">{servicio.data.name}</h3>
-              <p class="mt-4 text-sm/6 text-neutral-600 group-data-featured/tier:text-neutral-300 dark:text-neutral-300">{servicio.data.description}</p>
-              <p class="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden">
-                <span class="text-4xl font-semibold tracking-tight text-neutral-900 group-data-featured/tier:text-white dark:text-white">{servicio.data.monthlyPrice}</span>
-                <span class="text-sm/6 font-semibold text-neutral-600 group-data-featured/tier:text-neutral-300 dark:text-neutral-400">/mes</span>
-              </p>
-              <p class="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden">
-                <span class="text-4xl font-semibold tracking-tight text-neutral-900 group-data-featured/tier:text-white dark:text-white">{servicio.data.annualPrice}</span>
-                <span class="text-sm/6 font-semibold text-neutral-600 group-data-featured/tier:text-neutral-300 dark:text-neutral-400">/año</span>
-              </p>
-              <a href={`/servicios/${servicio.id}`} aria-describedby={`tier-${servicio.id}`} class="mt-6 block w-full rounded-md bg-primary-600 px-3 py-2 text-center text-sm/6 font-semibold text-white shadow-xs group-data-featured/tier:bg-white/10 group-data-featured/tier:inset-ring group-data-featured/tier:inset-ring-white/5 hover:bg-primary-500 group-data-featured/tier:hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 group-data-featured/tier:focus-visible:outline-white/75 dark:bg-primary-500 dark:shadow-none dark:hover:bg-primary-400 dark:focus-visible:outline-primary-500">{servicio.data.cta}</a>
-              <ul role="list" class="mt-8 space-y-3 text-sm/6 text-neutral-600 group-data-featured/tier:text-neutral-300 xl:mt-10 dark:text-neutral-300">
-                {servicio.data.features.map((feature) => (
-                  <li class="flex gap-x-3">
-                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-6 w-5 flex-none text-primary-600 group-data-featured/tier:text-white dark:text-primary-400">
-                      <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {servicios.map((servicio) => {
+            const color = servicio.data.cardColor;
+            return (
+              <div class:list={["rounded-3xl p-8 xl:p-10", cardStyles[color]]}>
+                <h3 id={`tier-${servicio.id}`} class:list={["text-lg/8 font-semibold", titleStyles[color]]}>{servicio.data.name}</h3>
+                <p class:list={["mt-4 text-sm/6", descStyles[color]]}>{servicio.data.description}</p>
+                <p class:list={["mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden"]}>
+                  <span class:list={["text-4xl font-semibold tracking-tight", priceStyles[color]]}>{servicio.data.monthlyPrice}</span>
+                  <span class:list={["text-sm/6 font-semibold", priceSuffixStyles[color]]}>/mes</span>
+                </p>
+                <p class:list={["mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden"]}>
+                  <span class:list={["text-4xl font-semibold tracking-tight", priceStyles[color]]}>{servicio.data.annualPrice}</span>
+                  <span class:list={["text-sm/6 font-semibold", priceSuffixStyles[color]]}>/año</span>
+                </p>
+                <a href={`/servicios/${servicio.id}`} aria-describedby={`tier-${servicio.id}`} class:list={["mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2", ctaStyles[color]]}>{servicio.data.cta}</a>
+                <ul role="list" class:list={["mt-8 space-y-3 text-sm/6 xl:mt-10", featureTextStyles[color]]}>
+                  {servicio.data.features.map((feature) => (
+                    <li class="flex gap-x-3">
+                      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class:list={["h-6 w-5 flex-none", checkStyles[color]]}>
+                        <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </div>
     </form>
