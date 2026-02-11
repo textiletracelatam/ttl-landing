@@ -1,3 +1,15 @@
 ---
-return Astro.redirect("https://www.linkedin.com/company/textiletrace-latam/", 301);
+const url = "https://www.linkedin.com/company/textiletrace-latam/";
 ---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${url}`} />
+    <link rel="canonical" href={url} />
+    <title>Redirigiendo a LinkedIn...</title>
+  </head>
+  <body>
+    <p>Redirigiendo a <a href={url}>LinkedIn</a>...</p>
+  </body>
+</html>

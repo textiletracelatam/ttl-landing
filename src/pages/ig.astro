@@ -1,3 +1,15 @@
 ---
-return Astro.redirect("https://www.instagram.com/textiletrace.latam/", 301);
+const url = "https://www.instagram.com/textiletrace.latam/";
 ---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${url}`} />
+    <link rel="canonical" href={url} />
+    <title>Redirigiendo a Instagram...</title>
+  </head>
+  <body>
+    <p>Redirigiendo a <a href={url}>Instagram</a>...</p>
+  </body>
+</html>

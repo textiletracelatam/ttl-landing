@@ -2,6 +2,7 @@
   "name": "ttl-landing",
   "compatibility_date": "2026-02-10",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "not_found_handling": "404-page"
   }
 }
