@@ -4,47 +4,104 @@ import { appConfig } from "../config";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-neutral-100 dark:bg-neutral-900">
-  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-10 sm:py-12 lg:px-8">
-    <!-- Logo -->
-    <div class="flex justify-center mb-8">
-      <img
-        src={appConfig.logo}
-        alt={appConfig.name}
-        width="360"
-        height="120"
-        class="h-30 w-auto object-contain"
-      />
+<footer class="bg-white dark:bg-neutral-900">
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <img src={appConfig.logo} alt={appConfig.name} class="h-20 w-auto object-contain" />
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm/6 font-semibold text-neutral-900 dark:text-white">Servicios</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="/servicios/trace-export" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Trace Export</a>
+              </li>
+              <li>
+                <a href="/servicios/trace-local" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Trace Local</a>
+              </li>
+              <li>
+                <a href="/servicios/trace-manufacturer" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Trace Manufacturer</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-sm/6 font-semibold text-neutral-900 dark:text-white">Soporte</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="/soporte/ticket" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Enviar ticket</a>
+              </li>
+              <li>
+                <a href="/soporte/documentacion" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Documentación</a>
+              </li>
+              <li>
+                <a href="/soporte/guias" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Guías</a>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-sm/6 font-semibold text-neutral-900 dark:text-white">Empresa</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="/nosotros" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Nosotros</a>
+              </li>
+              <li>
+                <a href="/blog" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Blog</a>
+              </li>
+              <li>
+                <a href="/empleo" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Empleo</a>
+              </li>
+              <li>
+                <a href="/aliados" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Aliados</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <h3 class="text-sm/6 font-semibold text-neutral-900 dark:text-white">Legal</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li>
+                <a href="/legal/terminos" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Términos de servicio</a>
+              </li>
+              <li>
+                <a href="/legal/privacidad" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Política de privacidad</a>
+              </li>
+              <li>
+                <a href="/legal/licencia" class="text-sm/6 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">Licencia</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <nav
-      aria-label="Footer"
-      class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6"
-    >
-      {appConfig.footerLinks.map((item) => (
-        <a
-          href={item.href}
-          class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
-        >
-          {item.name}
-        </a>
-      ))}
-    </nav>
-
-    <div class="mt-16 flex justify-center gap-x-10">
-      {appConfig.socials.map((item) => (
-        <a
-          href={item.href}
-          class="text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-white"
-        >
-          <span class="sr-only">{item.name}</span>
-          <Fragment set:html={item.icon} />
-        </a>
-      ))}
+    <!-- Newsletter -->
+    <div class="mt-16 border-t border-neutral-900/10 pt-8 sm:flex sm:items-center sm:justify-between dark:border-white/10">
+      <div>
+        <h3 class="text-sm/6 font-semibold text-neutral-900 dark:text-white">Suscríbete a nuestro boletín</h3>
+        <p class="mt-1 text-sm/6 text-neutral-600 dark:text-neutral-400">Recibe las últimas noticias sobre trazabilidad y sostenibilidad textil.</p>
+      </div>
+      <form class="mt-4 sm:mt-0 sm:ml-8 flex gap-x-3 shrink-0">
+        <label for="email-address" class="sr-only">Correo electrónico</label>
+        <input id="email-address" name="email" type="email" required autocomplete="email" placeholder="tu@email.com" class="w-full sm:w-64 rounded-md bg-white px-3.5 py-2 text-base text-neutral-900 outline-1 -outline-offset-1 outline-neutral-300 placeholder:text-neutral-400 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600 sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-neutral-500 dark:focus:outline-primary-500" />
+        <button type="submit" class="flex-none rounded-md bg-primary-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-500 dark:hover:bg-primary-400 dark:focus-visible:outline-primary-500">Suscribirse</button>
+      </form>
     </div>
 
-    <p class="mt-10 text-center text-sm/6 text-neutral-600 dark:text-neutral-400">
-      &copy; {currentYear} {appConfig.name}. Todos los derechos reservados.
-    </p>
+    <!-- Socials + copyright -->
+    <div class="mt-8 border-t border-neutral-900/10 pt-8 md:flex md:items-center md:justify-between dark:border-white/10">
+      <div class="flex gap-x-6 md:order-2">
+        {appConfig.socials.map((item) => (
+          <a href={item.href} class="text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-white">
+            <span class="sr-only">{item.name}</span>
+            <Fragment set:html={item.icon} />
+          </a>
+        ))}
+      </div>
+      <p class="mt-8 text-sm/6 text-neutral-600 md:order-1 md:mt-0 dark:text-neutral-400">
+        &copy; {currentYear} {appConfig.name}. Todos los derechos reservados.
+      </p>
+    </div>
   </div>
 </footer>

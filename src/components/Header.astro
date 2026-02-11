@@ -1,13 +1,29 @@
 ---
-const navLinks = [
+const leftLinks = [
   { label: "Inicio", href: "/" },
+];
+
+const rightLinks = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Blog", href: "/blog" },
   { label: "Empleo", href: "/empleo" },
   { label: "Aliados", href: "/aliados" },
 ];
 
+const serviciosItems = [
+  { name: "Trace Export", href: "/servicios/trace-export", description: "DPP para exportar a la Unión Europea", icon: `<path d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5a17.92 17.92 0 0 1-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418" stroke-linecap="round" stroke-linejoin="round" />` },
+  { name: "Trace Local", href: "/servicios/trace-local", description: "DPP para el mercado latinoamericano", icon: `<path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke-linecap="round" stroke-linejoin="round" /><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" stroke-linecap="round" stroke-linejoin="round" />` },
+  { name: "Trace Manufacturer", href: "/servicios/trace-manufacturer", description: "DPP para fabricantes de telas e insumos", icon: `<path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" stroke-linecap="round" stroke-linejoin="round" />` },
+];
+
+const allNavLinks = [
+  ...leftLinks,
+  { label: "Servicios", href: "/servicios" },
+  ...rightLinks,
+];
+
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isServiciosActive = currentPath.startsWith("/servicios");
 ---
 
 <header class="sticky top-0 z-40 bg-background/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
@@ -15,7 +31,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
     <div class="flex h-14 sm:h-16 items-center justify-between">
       <!-- Desktop nav (left) -->
       <div class="hidden lg:flex lg:flex-1 lg:items-center lg:gap-1">
-        {navLinks.slice(0, Math.ceil(navLinks.length / 2)).map((link) => (
+        {leftLinks.map((link) => (
           <a
             href={link.href}
             class:list={[
@@ -28,6 +44,52 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
             {link.label}
           </a>
         ))}
+        <!-- Servicios dropdown -->
+        <div class="relative" id="servicios-dropdown">
+          <button
+            id="servicios-btn"
+            type="button"
+            class:list={[
+              "flex items-center gap-x-1 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+              isServiciosActive
+                ? "text-primary-700 dark:text-primary-300"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white",
+            ]}
+          >
+            Servicios
+            <svg class="size-4 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+            </svg>
+          </button>
+          <div
+            id="servicios-panel"
+            class="absolute left-1/2 top-full z-50 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-neutral-900/5 hidden opacity-0 translate-y-1 transition-all duration-200 dark:bg-neutral-800 dark:ring-white/10"
+          >
+            <div class="p-4">
+              {serviciosItems.map((item) => (
+                <a href={item.href} class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-neutral-50 dark:hover:bg-white/5">
+                  <div class="flex size-11 flex-none items-center justify-center rounded-lg bg-neutral-50 group-hover:bg-white dark:bg-neutral-700/50 dark:group-hover:bg-neutral-700">
+                    <svg class="size-6 text-neutral-600 group-hover:text-primary-600 dark:text-neutral-400 dark:group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <Fragment set:html={item.icon} />
+                    </svg>
+                  </div>
+                  <div class="flex-auto">
+                    <span class="block font-semibold text-neutral-900 dark:text-white">
+                      {item.name}
+                      <span class="absolute inset-0"></span>
+                    </span>
+                    <p class="mt-1 text-neutral-600 dark:text-neutral-400">{item.description}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div class="bg-neutral-50 dark:bg-neutral-700/50">
+              <a href="/servicios" class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-neutral-900 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-700/50">
+                Ver todos los servicios
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Logo (centered) -->
@@ -37,7 +99,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 
       <!-- Desktop nav (right) -->
       <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:gap-1">
-        {navLinks.slice(Math.ceil(navLinks.length / 2)).map((link) => (
+        {rightLinks.map((link) => (
           <a
             href={link.href}
             class:list={[
@@ -93,18 +155,48 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
           </button>
         </div>
         <div class="mt-3 space-y-1 px-2">
-          {navLinks.map((link) => (
-            <a
-              href={link.href}
-              class:list={[
-                "block rounded-md px-3 py-2 text-base font-medium",
-                currentPath === link.href
-                  ? "bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300"
-                  : "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white",
-              ]}
-            >
-              {link.label}
-            </a>
+          {allNavLinks.map((link) => (
+            link.label === "Servicios" ? (
+              <div>
+                <button
+                  id="mobile-servicios-btn"
+                  type="button"
+                  class:list={[
+                    "flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium",
+                    isServiciosActive
+                      ? "bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300"
+                      : "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white",
+                  ]}
+                >
+                  Servicios
+                  <svg id="mobile-servicios-chevron" class="size-5 flex-none transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+                  </svg>
+                </button>
+                <div id="mobile-servicios-sub" class="hidden mt-1 space-y-1">
+                  {serviciosItems.map((item) => (
+                    <a href={item.href} class="block rounded-md py-2 pr-3 pl-9 text-sm font-medium text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white">
+                      {item.name}
+                    </a>
+                  ))}
+                  <a href="/servicios" class="block rounded-md py-2 pr-3 pl-9 text-sm font-medium text-primary-600 hover:bg-neutral-100 dark:text-primary-400 dark:hover:bg-neutral-700">
+                    Ver todos
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <a
+                href={link.href}
+                class:list={[
+                  "block rounded-md px-3 py-2 text-base font-medium",
+                  currentPath === link.href
+                    ? "bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300"
+                    : "text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white",
+                ]}
+              >
+                {link.label}
+              </a>
+            )
           ))}
         </div>
       </div>
@@ -113,6 +205,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 </header>
 
 <script>
+  // Mobile menu
   const openBtn = document.getElementById("menu-open-btn");
   const closeBtn = document.getElementById("menu-close-btn");
   const backdrop = document.getElementById("mobile-menu-backdrop");
@@ -141,4 +234,47 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
   openBtn?.addEventListener("click", openMenu);
   closeBtn?.addEventListener("click", closeMenu);
   backdrop?.addEventListener("click", closeMenu);
+
+  // Desktop servicios dropdown
+  const serviciosBtn = document.getElementById("servicios-btn");
+  const serviciosPanel = document.getElementById("servicios-panel");
+
+  function openDropdown() {
+    serviciosPanel?.classList.remove("hidden");
+    requestAnimationFrame(() => {
+      serviciosPanel?.classList.remove("opacity-0", "translate-y-1");
+    });
+  }
+
+  function closeDropdown() {
+    serviciosPanel?.classList.add("opacity-0", "translate-y-1");
+    setTimeout(() => {
+      serviciosPanel?.classList.add("hidden");
+    }, 200);
+  }
+
+  serviciosBtn?.addEventListener("click", () => {
+    if (serviciosPanel?.classList.contains("hidden")) {
+      openDropdown();
+    } else {
+      closeDropdown();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    const dropdown = document.getElementById("servicios-dropdown");
+    if (dropdown && !dropdown.contains(e.target as Node)) {
+      closeDropdown();
+    }
+  });
+
+  // Mobile servicios sub-menu
+  const mobileServiciosBtn = document.getElementById("mobile-servicios-btn");
+  const mobileServiciosSub = document.getElementById("mobile-servicios-sub");
+  const mobileServiciosChevron = document.getElementById("mobile-servicios-chevron");
+
+  mobileServiciosBtn?.addEventListener("click", () => {
+    mobileServiciosSub?.classList.toggle("hidden");
+    mobileServiciosChevron?.classList.toggle("rotate-180");
+  });
 </script>

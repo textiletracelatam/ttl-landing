@@ -1,0 +1,37 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const guias = await getCollection("guias");
+  return guias.map((guia) => ({
+    params: { id: guia.id },
+    props: { guia },
+  }));
+}
+
+const { guia } = Astro.props;
+const { Content } = await render(guia);
+---
+
+<Layout title={guia.data.title}>
+  <article class="bg-background pt-8 pb-24 sm:pt-12 sm:pb-32">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <time datetime={guia.data.date.toISOString()} class="text-sm text-neutral-500 dark:text-neutral-400">
+          {guia.data.date.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
+        </time>
+        <h1 class="mt-6 text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{guia.data.title}</h1>
+        <p class="mt-4 text-lg/8 text-neutral-600 dark:text-neutral-400">{guia.data.description}</p>
+      </div>
+
+      <div class="prose prose-lg mx-auto mt-12 max-w-3xl dark:prose-invert prose-headings:text-neutral-900 dark:prose-headings:text-white prose-p:text-neutral-600 dark:prose-p:text-neutral-400 prose-a:text-primary-600 dark:prose-a:text-primary-400">
+        <Content />
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="/soporte/guias" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver a guías</a>
+      </div>
+    </div>
+  </article>
+</Layout>

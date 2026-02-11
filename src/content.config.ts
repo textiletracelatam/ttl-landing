@@ -87,7 +87,7 @@ const pages = defineCollection({
 });
 
 const values = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/about/values" }),
+  loader: glob({ pattern: "**/*.md", base: "src/content/empleo/values" }),
   schema: z.object({
     title: z.string(),
     order: z.number(),
@@ -114,9 +114,69 @@ const team = defineCollection({
   schema: z.object({
     name: z.string(),
     role: z.string(),
+    bio: z.string().optional(),
     image: z.string(),
+    order: z.number(),
+    links: z
+      .array(
+        z.object({
+          icon: z.enum(["linkedin", "twitter", "github", "instagram", "website"]),
+          url: z.string(),
+        })
+      )
+      .optional(),
+  }),
+});
+
+const aliados = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "src/content/aliados" }),
+  schema: z.object({
+    name: z.string(),
+    logo: z.string(),
+    logoDark: z.string(),
+    url: z.string(),
     order: z.number(),
   }),
 });
 
-export const collections = { home, pages, values, team, blog };
+const legal = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "src/content/legal" }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+  }),
+});
+
+const soporte = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "src/content/soporte" }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+  }),
+});
+
+const guias = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "src/content/guias" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    order: z.number(),
+  }),
+});
+
+const servicios = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "src/content/servicios" }),
+  schema: z.object({
+    name: z.string(),
+    description: z.string(),
+    monthlyPrice: z.string(),
+    annualPrice: z.string(),
+    cta: z.string(),
+    featured: z.boolean().optional(),
+    order: z.number(),
+    features: z.array(z.string()),
+  }),
+});
+
+export const collections = { home, pages, values, team, blog, aliados, legal, soporte, guias, servicios };

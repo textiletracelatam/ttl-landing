@@ -1,6 +1,6 @@
 ---
-heroTitle: "Acompáñanos a ser pioneros en trazabilidad en Colombia y Latinoamérica"
-heroDescription: ""
+heroTitle: "¿Quiénes Somos?"
+heroDescription: "Acompáñanos a ser pioneros en trazabilidad en Colombia y Latinoamérica"
 heroImages:
   - src: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/WhatsApp%20Image%202026-02-09%20at%205.35.44%20PM.jpeg"
     alt: "Cotton field harvest"
@@ -16,10 +16,12 @@ missionBody: "El proyecto nació en Colombia, inspirado por modelos exitosos de 
 stats:
   - value: "Historia"
     label: "Apasionados por las historias"
-  - value: "Colombia y Latinoamérica"
-    label: "Apoyamos la sostenibilidad en todo el territorio"
+  - value: "LATAM"
+    label: "Alcance regional"
   - value: "100%"
     label: "Colombiano"
+  - value: "DPP"
+    label: "Pasaportes digitales de producto"
 teamImage:
   src: "https://unsplash.com/photos/Ag4HXB4bgpw/download?ixid=rb-4.0.3&force=true&w=2832"
   alt: "Two fashion designers collaborate on a new pattern"
