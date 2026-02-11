@@ -4,6 +4,7 @@ description: "Tener datos no es lo mismo que generar impacto. El verdadero reto 
 date: 2025-02-20
 author: "Equipo TTL"
 image: "https://d1yei2z3i6k35z.cloudfront.net/15861133/69759681ce603_Dise%C3%B1osint%C3%ADtulo20.png"
+imageDark: "https://d1yei2z3i6k35z.cloudfront.net/15861133/69759681ce603_Dise%C3%B1osint%C3%ADtulo20.png"
 category: "Tecnología"
 ctaTitle: "¿Listo para transformar tus datos en valor?"
 ctaMessage: "Acompañamos a tu empresa para que sus pasaportes digitales no sean solo una obligación, sino una herramienta estratégica."

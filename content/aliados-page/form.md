@@ -2,6 +2,7 @@
 heading: "¿Quieres ser aliado?"
 description: "Si tu organización comparte nuestra visión de una industria textil más transparente y sostenible, nos encantaría colaborar contigo."
 image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
+imageDark: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
 imageAlt: "Business collaboration"
 submitText: "Enviar mensaje"
 submitColor: "primary"

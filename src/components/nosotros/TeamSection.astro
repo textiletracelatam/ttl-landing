@@ -22,7 +22,8 @@ function getIconSvg(icon: string): string {
     <ul role="list" class="divide-y divide-neutral-200 xl:col-span-3 dark:divide-neutral-800">
       {team.map((member) => (
         <li class="flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row">
-          <img src={member.data.image} alt="" class="aspect-4/5 w-52 flex-none rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10" />
+          <img src={member.data.image} alt="" class:list={["aspect-4/5 w-52 flex-none rounded-2xl object-cover outline-1 -outline-offset-1 outline-black/5 dark:outline-white/10", member.data.imageDark && "dark:hidden"]} />
+          {member.data.imageDark && <img src={member.data.imageDark} alt="" class="hidden aspect-4/5 w-52 flex-none rounded-2xl object-cover outline-1 -outline-offset-1 outline-white/10 dark:block" />}
           <div class="max-w-xl flex-auto">
             <h3 class="text-lg/8 font-semibold tracking-tight text-neutral-900 dark:text-white">{member.data.name}</h3>
             <p class="text-base/7 text-neutral-600 dark:text-neutral-400">{member.data.role}</p>

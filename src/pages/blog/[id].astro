@@ -34,7 +34,8 @@ const { Content } = await render(post);
 
       <!-- Featured image -->
       <div class="mt-12 overflow-hidden rounded-2xl">
-        <img src={post.data.image} alt={post.data.title} class="w-full object-cover" />
+        <img src={post.data.image} alt={post.data.title} class:list={["w-full object-cover", post.data.imageDark && "dark:hidden"]} />
+        {post.data.imageDark && <img src={post.data.imageDark} alt={post.data.title} class="hidden w-full object-cover dark:block" />}
       </div>
 
       <!-- Content -->

@@ -3,6 +3,7 @@ tagline: "Nuestra misión"
 heading: "¿Qué hacemos en Textile Trace LATAM?"
 description: "En Textile Trace LATAM buscamos acompañar a las marcas en el proceso de construir y comunicar la historia viva detrás de sus productos, integrando la trazabilidad como parte de su estrategia de sostenibilidad y transparencia."
 image: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/info%20dpp.png"
+imageDark: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/info%20dpp.png"
 imageAlt: "Información DPP"
 stats:
   - value: "Historia"

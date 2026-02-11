@@ -4,6 +4,7 @@ description: "¿Qué es y por qué es clave para el futuro de los productos?"
 date: 2026-02-9
 author: "Equipo TTL"
 image: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/economia%20circular.png"
+imageDark: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/economia%20circular.png"
 category: "Sostenibilidad"
 ctaTitle: "¿Quieres habilitar la circularidad en tus productos?"
 ctaMessage: "Te ayudamos a estructurar la información de tus productos para que acompañen todo su ciclo de vida a través de pasaportes digitales."

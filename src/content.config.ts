@@ -10,6 +10,7 @@ const homeHero = defineCollection({
     tagline: z.string().optional(),
     description: z.string().optional(),
     logoImage: z.string(),
+    logoImageDark: z.string().optional(),
     logoAlt: z.string().default("Textile Trace Latam"),
     phoneMockupLight: z.string(),
     phoneMockupDark: z.string(),
@@ -86,6 +87,7 @@ const homeMission = defineCollection({
     heading: z.string(),
     description: z.string(),
     image: z.string(),
+    imageDark: z.string().optional(),
     imageAlt: z.string().default("Mission image"),
     stats: z.array(
       z.object({
@@ -269,6 +271,7 @@ const blog = defineCollection({
     date: z.coerce.date(),
     author: z.string(),
     image: z.string(),
+    imageDark: z.string().optional(),
     category: z.string(),
     ctaTitle: z.string().optional(),
     ctaMessage: z.string().optional(),
@@ -284,6 +287,7 @@ const team = defineCollection({
     role: z.string(),
     bio: z.string().optional(),
     image: z.string(),
+    imageDark: z.string().optional(),
     order: z.number(),
     links: z
       .array(

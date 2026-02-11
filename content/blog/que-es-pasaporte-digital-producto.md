@@ -4,6 +4,7 @@ description: "Imagina que tomas una prenda y, con solo escanear un código, pued
 date: 2025-02-01
 author: "Equipo TTL"
 image: "https://d1yei2z3i6k35z.cloudfront.net/15861133/697593fb77c52_Dise%C3%B1osint%C3%ADtulo19.png"
+imageDark: "https://d1yei2z3i6k35z.cloudfront.net/15861133/697593fb77c52_Dise%C3%B1osint%C3%ADtulo19.png"
 category: "Trazabilidad"
 ctaTitle: "¿Quieres crear el Pasaporte Digital de tu producto?"
 ctaMessage: "Te ayudamos a diseñar pasaportes digitales que combinan cumplimiento normativo con la historia real de tu marca."

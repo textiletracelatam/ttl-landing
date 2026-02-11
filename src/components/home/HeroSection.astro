@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 
 interface Props {}
 
-const { headline, tagline, description, logoImage, logoAlt, phoneMockupLight, phoneMockupDark, phoneMockupAlt, ctaPrimaryText, ctaPrimaryHref, ctaPrimaryColor, ctaGhostText, ctaGhostHref, ctaGhostColor } = (await getEntry("homeHero", "hero"))!.data;
+const { headline, tagline, description, logoImage, logoImageDark, logoAlt, phoneMockupLight, phoneMockupDark, phoneMockupAlt, ctaPrimaryText, ctaPrimaryHref, ctaPrimaryColor, ctaGhostText, ctaGhostHref, ctaGhostColor } = (await getEntry("homeHero", "hero"))!.data;
 
 const filledStyles = {
   primary: "bg-primary-500 hover:bg-primary-400",
@@ -35,7 +35,8 @@ const ghostStyles = {
   </div>
   <div class="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-20">
     <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-      <img src={logoImage} alt={logoAlt} class="h-30 w-auto object-contain" />
+      <img src={logoImage} alt={logoAlt} class:list={["h-30 w-auto object-contain", logoImageDark && "dark:hidden"]} />
+      {logoImageDark && <img src={logoImageDark} alt={logoAlt} class="hidden h-30 w-auto object-contain dark:block" />}
       <h1 class="mt-10 text-5xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-7xl dark:text-white">{headline}</h1>
       {tagline && <p class="mt-4 text-lg font-semibold text-neutral-800 dark:text-neutral-200">{tagline}</p>}
       {description && <p class="mt-8 text-lg font-medium text-pretty text-neutral-500 sm:text-xl/8 dark:text-neutral-400">{description}</p>}

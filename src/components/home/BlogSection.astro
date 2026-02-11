@@ -22,7 +22,8 @@ const posts = (await getCollection("blog"))
         {posts.map((post) => (
           <article class="flex w-80 shrink-0 flex-col items-start justify-between">
             <div class="relative w-full">
-              <img src={post.data.image} alt={post.data.title} class="aspect-video w-full rounded-2xl bg-neutral-100 object-cover dark:bg-neutral-800" />
+              <img src={post.data.image} alt={post.data.title} class:list={["aspect-video w-full rounded-2xl bg-neutral-100 object-cover dark:bg-neutral-800", post.data.imageDark && "dark:hidden"]} />
+              {post.data.imageDark && <img src={post.data.imageDark} alt={post.data.title} class="hidden aspect-video w-full rounded-2xl bg-neutral-800 object-cover dark:block" />}
               <div class="absolute inset-0 rounded-2xl inset-ring inset-ring-neutral-900/10 dark:inset-ring-white/10"></div>
             </div>
             <div class="flex w-full grow flex-col justify-between">

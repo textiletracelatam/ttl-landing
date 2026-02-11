@@ -23,8 +23,13 @@ const posts = (await getCollection("blog")).sort(
               <img
                 src={post.data.image}
                 alt={post.data.title}
-                class="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+                class:list={["size-full object-cover transition-transform duration-300 group-hover:scale-105", post.data.imageDark && "dark:hidden"]}
               />
+              {post.data.imageDark && <img
+                src={post.data.imageDark}
+                alt={post.data.title}
+                class="hidden size-full object-cover transition-transform duration-300 group-hover:scale-105 dark:block"
+              />}
             </div>
             <div class="flex flex-1 flex-col p-6">
               <div class="flex items-center gap-x-4 text-xs">
