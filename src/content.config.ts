@@ -272,6 +272,7 @@ const blog = defineCollection({
     category: z.string(),
     ctaTitle: z.string().optional(),
     ctaMessage: z.string().optional(),
+    ctaButtonText: z.string().optional(),
     ctaLink: z.string().optional(),
   }),
 });

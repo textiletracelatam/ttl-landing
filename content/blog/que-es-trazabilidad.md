@@ -7,6 +7,7 @@ image: "https://d1yei2z3i6k35z.cloudfront.net/15861133/697594afbabf2_WhatsAppIma
 category: "Trazabilidad"
 ctaTitle: "¿Listo para implementar trazabilidad en tu cadena de valor?"
 ctaMessage: "Diseñamos sistemas de trazabilidad pensados para pasaportes digitales. Acompañamos a tu empresa paso a paso hacia la transparencia."
+ctaButtonText: "Solicitar una demo"
 ctaLink: "#"
 ---
 

@@ -7,6 +7,7 @@ image: "https://d1yei2z3i6k35z.cloudfront.net/15861133/6983e7d90bf4c_Dise%C3%B1o
 category: "Sostenibilidad"
 ctaTitle: "¿Quieres comunicar sostenibilidad con evidencia real?"
 ctaMessage: "Nuestros pasaportes digitales te permiten respaldar cada afirmación con datos verificables. Deja atrás el greenwashing."
+ctaButtonText: "Solicitar una demo"
 ctaLink: "#"
 ---
 

@@ -7,6 +7,7 @@ image: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%2
 category: "Sostenibilidad"
 ctaTitle: "¿Quieres habilitar la circularidad en tus productos?"
 ctaMessage: "Te ayudamos a estructurar la información de tus productos para que acompañen todo su ciclo de vida a través de pasaportes digitales."
+ctaButtonText: "Solicitar una demo"
 ctaLink: "#"
 ---
 
