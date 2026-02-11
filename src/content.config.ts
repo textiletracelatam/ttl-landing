@@ -243,6 +243,16 @@ const aliadosCta = defineCollection({
   }),
 });
 
+const socials = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "content/socials" }),
+  schema: z.object({
+    name: z.string(),
+    href: z.string(),
+    icon: z.string(),
+    order: z.number(),
+  }),
+});
+
 const values = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "content/empleo/values" }),
   schema: z.object({
@@ -277,7 +287,7 @@ const team = defineCollection({
     links: z
       .array(
         z.object({
-          icon: z.enum(["linkedin", "twitter", "github", "instagram", "website"]),
+          icon: z.string(),
           url: z.string(),
         })
       )
@@ -336,4 +346,4 @@ const servicios = defineCollection({
   }),
 });
 
-export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, values, team, blog, aliados, legal, soporte, guias, servicios };
+export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, socials, values, team, blog, aliados, legal, soporte, guias, servicios };
