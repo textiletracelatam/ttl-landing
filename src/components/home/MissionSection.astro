@@ -1,0 +1,32 @@
+---
+import { getEntry } from "astro:content";
+
+interface Props {}
+
+const { tagline, heading, description, image, imageAlt, stats } = (await getEntry("homeMission", "mission"))!.data;
+---
+
+<div class="relative bg-white dark:bg-neutral-900">
+  <img src={image} alt={imageAlt} class="h-56 w-full bg-neutral-50 object-cover lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-1/2 dark:bg-neutral-800" />
+  <div class="mx-auto grid max-w-7xl lg:grid-cols-2">
+    <div class="px-6 pt-16 pb-24 sm:pt-20 sm:pb-32 lg:col-start-2 lg:px-8 lg:pt-32">
+      <div class="mx-auto max-w-2xl lg:mr-0 lg:max-w-lg">
+        <h2 class="text-base/8 font-semibold text-primary-600 dark:text-primary-400">{tagline}</h2>
+        <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{heading}</p>
+        <div class="mt-6 space-y-4 text-lg/8 text-neutral-600 dark:text-neutral-300">
+          {description.split('\n\n').map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+        <dl class="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
+          {stats.map((stat) => (
+            <div class="flex flex-col gap-y-3 border-l border-neutral-900/10 pl-6 dark:border-white/10">
+              <dt class="text-sm/6 text-neutral-600 dark:text-neutral-400">{stat.label}</dt>
+              <dd class="order-first text-3xl font-semibold tracking-tight text-neutral-900 dark:text-white">{stat.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

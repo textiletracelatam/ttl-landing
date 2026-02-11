@@ -1,56 +1,124 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-const home = defineCollection({
-  loader: glob({ pattern: "home.md", base: "content/home" }),
+const buttonColor = z.enum(["primary", "secondary", "neutral"]).default("primary");
+
+const homeHero = defineCollection({
+  loader: glob({ pattern: "hero.md", base: "content/home" }),
   schema: z.object({
-    heroHeadline: z.string(),
-    heroTagline: z.string(),
-    heroDescription: z.string(),
-    heroImage: z.string().optional(),
-    ctaPrimary: z.string(),
-    ctaGhost: z.string(),
-    trustTagline: z.string().optional(),
-    trustHeading: z.string().optional(),
-    trustLogos: z.array(
+    headline: z.string(),
+    tagline: z.string().optional(),
+    description: z.string().optional(),
+    logoImage: z.string(),
+    logoAlt: z.string().default("Textile Trace Latam"),
+    phoneMockupLight: z.string(),
+    phoneMockupDark: z.string(),
+    phoneMockupAlt: z.string().default("App screenshot"),
+    ctaPrimaryText: z.string(),
+    ctaPrimaryHref: z.string().default("#"),
+    ctaPrimaryColor: buttonColor,
+    ctaGhostText: z.string(),
+    ctaGhostHref: z.string().default("#"),
+    ctaGhostColor: buttonColor.default("neutral"),
+  }),
+});
+
+const homeTrust = defineCollection({
+  loader: glob({ pattern: "trust.md", base: "content/home" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
+    logos: z.array(
       z.object({
         name: z.string(),
         logo: z.string(),
       })
     ),
-    featuresTagline: z.string().optional(),
-    featuresHeading: z.string(),
-    featuresDescription: z.string(),
+  }),
+});
+
+const homeFeatures = defineCollection({
+  loader: glob({ pattern: "features.md", base: "content/home" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
     features: z.array(
       z.object({
         title: z.string(),
         description: z.string(),
-        icon: z.string(),
+        image: z.string().optional(),
+        imageDark: z.string().optional(),
+        imageAlt: z.string().optional(),
+        phoneMockupLight: z.string().optional(),
+        phoneMockupDark: z.string().optional(),
+        phoneMockupAlt: z.string().optional(),
+        codeSnippet: z
+          .object({
+            tabs: z.array(z.string()),
+            activeTab: z.number(),
+            code: z.string(),
+          })
+          .optional(),
       })
     ),
-    howItWorksHeading: z.string(),
-    howItWorksSteps: z.array(
+  }),
+});
+
+const homeHowItWorks = defineCollection({
+  loader: glob({ pattern: "how-it-works.md", base: "content/home" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
+    steps: z.array(
       z.object({
         step: z.number(),
         title: z.string(),
         description: z.string(),
       })
     ),
-    aboutTagline: z.string().optional(),
-    aboutHeading: z.string().optional(),
-    aboutDescription: z.string().optional(),
-    aboutImage: z.string().optional(),
-    statsHeading: z.string(),
+  }),
+});
+
+const homeMission = defineCollection({
+  loader: glob({ pattern: "mission.md", base: "content/home" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
+    description: z.string(),
+    image: z.string(),
+    imageAlt: z.string().default("Mission image"),
     stats: z.array(
       z.object({
         value: z.string(),
         label: z.string(),
       })
     ),
-    ctaHeading: z.string(),
-    ctaDescription: z.string(),
-    ctaPrimaryText: z.string(),
-    ctaGhostText: z.string(),
+  }),
+});
+
+const homeBlog = defineCollection({
+  loader: glob({ pattern: "blog.md", base: "content/home" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
+    description: z.string(),
+    linkText: z.string(),
+    linkHref: z.string().default("/blog"),
+    postCount: z.number().default(5),
+  }),
+});
+
+const homeCta = defineCollection({
+  loader: glob({ pattern: "cta.md", base: "content/home" }),
+  schema: z.object({
+    heading: z.string(),
+    description: z.string(),
+    primaryText: z.string(),
+    primaryHref: z.string().default("#"),
+    primaryColor: buttonColor,
+    ghostText: z.string(),
+    ghostHref: z.string().default("#"),
+    ghostColor: buttonColor.default("neutral"),
   }),
 });
 
@@ -179,4 +247,4 @@ const servicios = defineCollection({
   }),
 });
 
-export const collections = { home, pages, values, team, blog, aliados, legal, soporte, guias, servicios };
+export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, pages, values, team, blog, aliados, legal, soporte, guias, servicios };

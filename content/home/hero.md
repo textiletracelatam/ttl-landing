@@ -1,0 +1,16 @@
+---
+headline: "Pasaportes digitales de producto (DPP)"
+tagline: "Una herramienta digital que da vida a la historia de un producto."
+description: "Reúne y comunica información clave a lo largo de todo su ciclo de vida, desde el origen de los materiales y los procesos de fabricación, hasta su uso, reparación y fin de vida. A través del DPP, las marcas pueden mejorar la trazabilidad, cumplir con nuevas normativas y comunicar la historia viva y el impacto de cada producto reforzando su propuesta de valor al consumidor"
+logoImage: "https://d1yei2z3i6k35z.cloudfront.net/15861133/69715e5480fa7_logonegrosinfondo.png"
+logoAlt: "Textile Trace Latam"
+phoneMockupLight: "https://xhfttqvimvxbjvjpxvjb.supabase.co/storage/v1/object/public/temp_ttl/Create%20Next%20App.png"
+phoneMockupDark: "https://xhfttqvimvxbjvjpxvjb.supabase.co/storage/v1/object/public/temp_ttl/Create%20Next%20App%202.png"
+phoneMockupAlt: "App screenshot"
+ctaPrimaryText: "Quiero saber más"
+ctaPrimaryHref: "#"
+ctaPrimaryColor: "primary"
+ctaGhostText: "Quiero hacer mi DPP"
+ctaGhostHref: "#"
+ctaGhostColor: "neutral"
+---
