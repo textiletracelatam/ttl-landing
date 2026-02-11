@@ -122,35 +122,124 @@ const homeCta = defineCollection({
   }),
 });
 
-const pages = defineCollection({
-  loader: glob({ pattern: "about.md", base: "content/about" }),
+const nosotrosHero = defineCollection({
+  loader: glob({ pattern: "hero.md", base: "content/nosotros" }),
   schema: z.object({
-    heroTitle: z.string(),
-    heroDescription: z.string(),
-    heroImages: z.array(
-      z.object({
-        src: z.string(),
-        alt: z.string(),
-      })
-    ),
-    missionTitle: z.string(),
-    missionIntro: z.string(),
-    missionBody: z.string(),
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+const nosotrosMission = defineCollection({
+  loader: glob({ pattern: "mission.md", base: "content/nosotros" }),
+  schema: z.object({
+    intro: z.string(),
+    body: z.string(),
     stats: z.array(
       z.object({
         value: z.string(),
         label: z.string(),
       })
     ),
-    teamImage: z.object({
-      src: z.string(),
-      alt: z.string(),
-      credit: z.string().optional(),
-    }),
-    valuesHeading: z.string(),
-    valuesSubheading: z.string(),
-    teamHeading: z.string(),
-    teamSubheading: z.string(),
+  }),
+});
+
+const nosotrosTeam = defineCollection({
+  loader: glob({ pattern: "team.md", base: "content/nosotros" }),
+  schema: z.object({
+    heading: z.string(),
+    subheading: z.string(),
+  }),
+});
+
+const empleoHero = defineCollection({
+  loader: glob({ pattern: "hero.md", base: "content/empleo" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+const empleoWhyJoin = defineCollection({
+  loader: glob({ pattern: "why-join.md", base: "content/empleo" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
+    reasons: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+  }),
+});
+
+const empleoValuesIntro = defineCollection({
+  loader: glob({ pattern: "values-intro.md", base: "content/empleo" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
+  }),
+});
+
+const empleoCta = defineCollection({
+  loader: glob({ pattern: "cta.md", base: "content/empleo" }),
+  schema: z.object({
+    heading: z.string(),
+    description: z.string(),
+    primaryText: z.string(),
+    primaryHref: z.string().default("mailto:info@textiletrace.lat"),
+    primaryColor: buttonColor,
+    ghostText: z.string(),
+    ghostHref: z.string().default("/nosotros"),
+    ghostColor: buttonColor.default("neutral"),
+  }),
+});
+
+const aliadosHero = defineCollection({
+  loader: glob({ pattern: "hero.md", base: "content/aliados-page" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+const aliadosForm = defineCollection({
+  loader: glob({ pattern: "form.md", base: "content/aliados-page" }),
+  schema: z.object({
+    heading: z.string(),
+    description: z.string(),
+    image: z.string(),
+    imageDark: z.string().optional(),
+    imageAlt: z.string().default("Business collaboration"),
+    submitText: z.string(),
+    submitColor: buttonColor,
+    fields: z.array(
+      z.object({
+        id: z.string(),
+        name: z.string(),
+        label: z.string(),
+        type: z.string(),
+        autocomplete: z.string().optional(),
+        colSpan: z.number().optional(),
+        hint: z.string().optional(),
+        required: z.boolean().optional(),
+      })
+    ),
+  }),
+});
+
+const aliadosCta = defineCollection({
+  loader: glob({ pattern: "cta.md", base: "content/aliados-page" }),
+  schema: z.object({
+    heading: z.string(),
+    description: z.string(),
+    primaryText: z.string(),
+    primaryHref: z.string().default("mailto:info@textiletrace.lat"),
+    primaryColor: buttonColor,
+    ghostText: z.string(),
+    ghostHref: z.string().default("/nosotros"),
+    ghostColor: buttonColor.default("neutral"),
   }),
 });
 
@@ -247,4 +336,4 @@ const servicios = defineCollection({
   }),
 });
 
-export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, pages, values, team, blog, aliados, legal, soporte, guias, servicios };
+export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, values, team, blog, aliados, legal, soporte, guias, servicios };

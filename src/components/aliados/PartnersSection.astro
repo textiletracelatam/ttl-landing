@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+
+const aliadosEntries = await getCollection("aliados");
+const aliados = aliadosEntries.sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="bg-white py-24 sm:py-32 dark:bg-neutral-900">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="-mx-6 grid grid-cols-2 gap-0.5 overflow-hidden sm:mx-0 sm:rounded-2xl md:grid-cols-3">
+      {aliados.map((aliado) => (
+        <a href={aliado.data.url} target="_blank" rel="noopener noreferrer" class="bg-neutral-400/5 p-6 sm:p-10 dark:bg-white/5 transition-colors hover:bg-neutral-400/10 dark:hover:bg-white/10">
+          <img width="158" height="48" src={aliado.data.logo} alt={aliado.data.name} class="max-h-12 w-full object-contain dark:hidden" />
+          <img width="158" height="48" src={aliado.data.logoDark} alt={aliado.data.name} class="max-h-12 w-full object-contain not-dark:hidden" />
+        </a>
+      ))}
+    </div>
+  </div>
+</div>

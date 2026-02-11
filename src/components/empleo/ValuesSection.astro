@@ -1,0 +1,25 @@
+---
+import { getEntry, getCollection } from "astro:content";
+
+const { tagline, heading } = (await getEntry("empleoValuesIntro", "values-intro"))!.data;
+
+const valuesEntries = await getCollection("values");
+const values = valuesEntries.sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="bg-neutral-50 py-16 sm:py-20 dark:bg-neutral-900">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <p class="text-base/7 font-semibold text-primary-600 dark:text-primary-400">{tagline}</p>
+      <h2 class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{heading}</h2>
+    </div>
+    <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3">
+      {values.map((value) => (
+        <div class="border-l-2 border-primary-200 pl-6 dark:border-primary-700">
+          <h3 class="text-base/7 font-semibold text-neutral-900 dark:text-white">{value.data.title}</h3>
+          <p class="mt-2 text-base/7 text-neutral-600 dark:text-neutral-400">{value.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
