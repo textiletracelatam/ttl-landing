@@ -4,6 +4,8 @@ description: Un DPP ideal para las marcas que quieren mostrar la historia detrá
 monthlyPrice: "$49"
 annualPrice: "$499"
 cta: Más información
+linkText: "Ver demo"
+linkHref: "https://dpp.textiletracelatam.com/?id=69"
 order: 1
 features:
   - Pasaporte digital de producto (DPP)

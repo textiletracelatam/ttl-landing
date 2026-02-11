@@ -55,6 +55,12 @@ const checkStyles: Record<CardColor, string> = {
   primary: "text-white",
   black: "text-white",
 };
+
+const linkStyles: Record<CardColor, string> = {
+  white: "text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300",
+  primary: "text-white/90 hover:text-white",
+  black: "text-white/80 hover:text-white",
+};
 ---
 
 <Layout title="Servicios">
@@ -88,7 +94,7 @@ const checkStyles: Record<CardColor, string> = {
           {servicios.map((servicio) => {
             const color = servicio.data.cardColor;
             return (
-              <div class:list={["rounded-3xl p-8 xl:p-10", cardStyles[color]]}>
+              <div class:list={["flex flex-col rounded-3xl p-8 xl:p-10", cardStyles[color]]}>
                 <h3 id={`tier-${servicio.id}`} class:list={["text-lg/8 font-semibold", titleStyles[color]]}>{servicio.data.name}</h3>
                 <p class:list={["mt-4 text-sm/6", descStyles[color]]}>{servicio.data.description}</p>
                 <p class:list={["mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden"]}>
@@ -100,7 +106,7 @@ const checkStyles: Record<CardColor, string> = {
                   <span class:list={["text-sm/6 font-semibold", priceSuffixStyles[color]]}>/año</span>
                 </p>
                 <a href={`/servicios/${servicio.id}`} aria-describedby={`tier-${servicio.id}`} class:list={["mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold focus-visible:outline-2 focus-visible:outline-offset-2", ctaStyles[color]]}>{servicio.data.cta}</a>
-                <ul role="list" class:list={["mt-8 space-y-3 text-sm/6 xl:mt-10", featureTextStyles[color]]}>
+                <ul role="list" class:list={["mt-8 flex-1 space-y-3 text-sm/6 xl:mt-10", featureTextStyles[color]]}>
                   {servicio.data.features.map((feature) => (
                     <li class="flex gap-x-3">
                       <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class:list={["h-6 w-5 flex-none", checkStyles[color]]}>
@@ -110,6 +116,11 @@ const checkStyles: Record<CardColor, string> = {
                     </li>
                   ))}
                 </ul>
+                {servicio.data.linkText && servicio.data.linkHref && (
+                  <a href={servicio.data.linkHref} class:list={["mt-8 block text-center text-sm/6 font-semibold", linkStyles[color]]}>
+                    {servicio.data.linkText} <span aria-hidden="true">&rarr;</span>
+                  </a>
+                )}
               </div>
             );
           })}
