@@ -1,0 +1,254 @@
+---
+import "../styles/global.css";
+
+const missingPageImage =
+  "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/WhatsApp%20Image%202026-02-10%20at%2011.04.24%20PM.jpeg";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Página no encontrada | Textile Trace Latam</title>
+  </head>
+  <body class="min-h-screen bg-background text-foreground">
+    <main class="relative isolate min-h-screen overflow-hidden">
+      <div class="bg-base absolute inset-0 -z-30"></div>
+      <div class="weave absolute inset-0 -z-20"></div>
+      <div class="orb orb-one absolute -left-16 top-10 -z-10 h-64 w-64 rounded-full"></div>
+      <div class="orb orb-two absolute -right-20 bottom-12 -z-10 h-72 w-72 rounded-full"></div>
+
+      <section class="mx-auto grid min-h-screen w-full max-w-6xl items-center gap-12 px-6 py-12 lg:grid-cols-[1.05fr_0.95fr] lg:px-10">
+        <div class="intro">
+          <p class="inline-flex items-center gap-2 rounded-full border border-primary-300/35 bg-primary-100/35 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-primary-700">
+            404
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-primary-500"></span>
+            Fuera del telar
+          </p>
+
+          <h1 class="mt-6 text-balance text-4xl font-semibold leading-tight text-neutral-900 sm:text-5xl lg:text-6xl">
+            Esta ruta soltó el hilo.
+          </h1>
+          <p class="mt-5 max-w-xl text-pretty text-base leading-relaxed text-neutral-700 sm:text-lg">
+            No encontramos esta página. Quizá cambió de lugar o cerró su ciclo dentro de la colección.
+          </p>
+
+          <div class="thread-note mt-7 inline-flex items-center gap-4 rounded-2xl border border-primary-200/45 bg-primary-50/45 px-4 py-3 text-sm text-neutral-700 sm:text-base">
+            <img src="/needle-thread.svg" alt="" aria-hidden="true" class="thread-illustration h-16 w-auto shrink-0 sm:h-20" />
+            <span>Tejamos una nueva ruta desde aquí.</span>
+          </div>
+
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a
+              href="/"
+              class="inline-flex items-center justify-center rounded-xl bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_26px_rgba(158,84,37,0.26)] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-primary-500"
+            >
+              Regresar al inicio
+            </a>
+            <a
+              href="/servicios"
+              class="inline-flex items-center justify-center rounded-xl border border-primary-300/60 bg-primary-100/30 px-6 py-3 text-sm font-semibold text-primary-800 transition-transform duration-300 hover:-translate-y-0.5 hover:border-primary-400/70 hover:bg-primary-100/55"
+            >
+              Explorar servicios
+            </a>
+          </div>
+        </div>
+
+        <div class="visual relative mx-auto w-full max-w-[460px]">
+          <div class="halo" aria-hidden="true"></div>
+          <div class="photo-wrap relative overflow-hidden rounded-[2.2rem] border border-primary-200/40 p-4 sm:p-5">
+            <div class="textile-grid rounded-[1.8rem] p-4 sm:p-5">
+              <img
+                src={missingPageImage}
+                alt="Detalle textil para ilustrar página no encontrada"
+                class="h-72 w-full rounded-[1.4rem] object-cover shadow-[0_20px_34px_rgba(92,59,29,0.3)] sm:h-[29rem]"
+                loading="eager"
+              />
+            </div>
+          </div>
+          <div class="route route-top" aria-hidden="true"></div>
+          <div class="route route-bottom" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  h1 {
+    font-family: var(--font-playfair), "Palatino Linotype", serif;
+  }
+
+  .intro {
+    animation: rise 0.7s ease-out both;
+  }
+
+  .visual {
+    animation: rise 0.9s ease-out both;
+  }
+
+  .bg-base {
+    background:
+      radial-gradient(circle at 14% 14%, #fff7ef 0%, transparent 38%),
+      radial-gradient(circle at 88% 8%, #f2e8d4 0%, transparent 35%),
+      linear-gradient(160deg, #fdf8f2 0%, #f3eadb 54%, #eee1cf 100%);
+  }
+
+  .weave {
+    opacity: 0.42;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(137, 95, 59, 0.09) 0px,
+        rgba(137, 95, 59, 0.09) 1px,
+        transparent 1px,
+        transparent 14px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(114, 79, 50, 0.08) 0px,
+        rgba(114, 79, 50, 0.08) 1px,
+        transparent 1px,
+        transparent 14px
+      );
+  }
+
+  .orb {
+    filter: blur(4px);
+    opacity: 0.55;
+  }
+
+  .orb-one {
+    background: radial-gradient(circle at 30% 30%, rgba(230, 162, 114, 0.45), rgba(230, 162, 114, 0) 70%);
+  }
+
+  .orb-two {
+    background: radial-gradient(circle at 50% 50%, rgba(165, 124, 86, 0.4), rgba(165, 124, 86, 0) 70%);
+  }
+
+  .thread-note {
+    animation: bob 3.2s ease-in-out infinite;
+  }
+
+  .thread-illustration {
+    filter: drop-shadow(0 6px 10px rgba(98, 60, 28, 0.18));
+    animation: wiggle 4.8s ease-in-out infinite;
+  }
+
+  .photo-wrap {
+    background: linear-gradient(145deg, rgba(255, 250, 244, 0.42), rgba(243, 228, 209, 0.44));
+    box-shadow: 0 20px 60px rgba(97, 61, 30, 0.2);
+    backdrop-filter: blur(2px);
+  }
+
+  .textile-grid {
+    border: 1px solid rgba(164, 113, 73, 0.28);
+    background:
+      linear-gradient(130deg, rgba(255, 255, 255, 0.4), rgba(243, 228, 210, 0.44)),
+      repeating-linear-gradient(
+        0deg,
+        rgba(170, 122, 81, 0.11) 0px,
+        rgba(170, 122, 81, 0.11) 1px,
+        transparent 1px,
+        transparent 12px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(160, 113, 73, 0.11) 0px,
+        rgba(160, 113, 73, 0.11) 1px,
+        transparent 1px,
+        transparent 12px
+      );
+  }
+
+  .halo {
+    position: absolute;
+    inset: -16px;
+    border-radius: 2.6rem;
+    border: 1px dashed rgba(161, 104, 62, 0.36);
+    animation: spin 18s linear infinite;
+  }
+
+  .route {
+    position: absolute;
+    width: 140px;
+    height: 70px;
+    border: 2px dashed rgba(162, 99, 50, 0.4);
+    border-top: 0;
+    border-left: 0;
+    border-bottom-right-radius: 90px;
+  }
+
+  .route-top {
+    right: -28px;
+    top: -16px;
+    transform: rotate(-18deg);
+  }
+
+  .route-bottom {
+    left: -34px;
+    bottom: -24px;
+    transform: rotate(152deg);
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-2deg);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .route {
+      display: none;
+    }
+
+    .halo {
+      inset: -10px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .intro,
+    .visual,
+    .thread-note,
+    .thread-illustration,
+    .halo {
+      animation: none !important;
+    }
+  }
+</style>
