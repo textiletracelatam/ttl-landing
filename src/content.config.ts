@@ -2,7 +2,7 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 const home = defineCollection({
-  loader: glob({ pattern: "home.md", base: "src/content/home" }),
+  loader: glob({ pattern: "home.md", base: "content/home" }),
   schema: z.object({
     heroHeadline: z.string(),
     heroTagline: z.string(),
@@ -55,7 +55,7 @@ const home = defineCollection({
 });
 
 const pages = defineCollection({
-  loader: glob({ pattern: "about.md", base: "src/content/about" }),
+  loader: glob({ pattern: "about.md", base: "content/about" }),
   schema: z.object({
     heroTitle: z.string(),
     heroDescription: z.string(),
@@ -87,7 +87,7 @@ const pages = defineCollection({
 });
 
 const values = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/empleo/values" }),
+  loader: glob({ pattern: "**/*.md", base: "content/empleo/values" }),
   schema: z.object({
     title: z.string(),
     order: z.number(),
@@ -95,7 +95,7 @@ const values = defineCollection({
 });
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/blog" }),
+  loader: glob({ pattern: "**/*.md", base: "content/blog" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -110,7 +110,7 @@ const blog = defineCollection({
 });
 
 const team = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/about/team" }),
+  loader: glob({ pattern: "**/*.md", base: "content/about/team" }),
   schema: z.object({
     name: z.string(),
     role: z.string(),
@@ -129,7 +129,7 @@ const team = defineCollection({
 });
 
 const aliados = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/aliados" }),
+  loader: glob({ pattern: "**/*.md", base: "content/aliados" }),
   schema: z.object({
     name: z.string(),
     logo: z.string(),
@@ -140,7 +140,7 @@ const aliados = defineCollection({
 });
 
 const legal = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/legal" }),
+  loader: glob({ pattern: "**/*.md", base: "content/legal" }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string(),
@@ -148,7 +148,7 @@ const legal = defineCollection({
 });
 
 const soporte = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/soporte" }),
+  loader: glob({ pattern: "**/*.md", base: "content/soporte" }),
   schema: z.object({
     title: z.string(),
     subtitle: z.string(),
@@ -156,7 +156,7 @@ const soporte = defineCollection({
 });
 
 const guias = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/guias" }),
+  loader: glob({ pattern: "**/*.md", base: "content/guias" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -166,7 +166,7 @@ const guias = defineCollection({
 });
 
 const servicios = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/servicios" }),
+  loader: glob({ pattern: "**/*.md", base: "content/servicios" }),
   schema: z.object({
     name: z.string(),
     description: z.string(),
