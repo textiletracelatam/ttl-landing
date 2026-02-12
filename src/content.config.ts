@@ -256,6 +256,20 @@ const aliadosCta = defineCollection({
   }),
 });
 
+const contactanosCta = defineCollection({
+  loader: glob({ pattern: "cta.md", base: "content/contactanos" }),
+  schema: z.object({
+    heading: z.string(),
+    description: z.string(),
+    primaryText: z.string(),
+    primaryHref: z.string().default("/soporte/ticket"),
+    primaryColor: buttonColor,
+    ghostText: z.string(),
+    ghostHref: z.string().default("/soporte/documentacion"),
+    ghostColor: buttonColor.default("neutral"),
+  }),
+});
+
 const socials = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "content/socials" }),
   schema: z.object({
@@ -376,4 +390,4 @@ const servicios = defineCollection({
   }),
 });
 
-export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosParallax, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, socials, values, team, blog, aliados, legal, soporte, guias, normativas, servicios };
+export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosParallax, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, contactanosCta, socials, values, team, blog, aliados, legal, soporte, guias, normativas, servicios };

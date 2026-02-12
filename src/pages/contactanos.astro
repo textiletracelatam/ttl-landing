@@ -1,8 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { appConfig } from "../config";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { readFileSync } from "node:fs";
+
+const { heading: ctaHeading, description: ctaDescription, primaryText, primaryHref, primaryColor, ghostText, ghostHref, ghostColor } = (await getEntry("contactanosCta", "cta"))!.data;
+
+const filledStyles = {
+  primary: "bg-primary-600 hover:bg-primary-500 focus-visible:outline-primary-600",
+  secondary: "bg-secondary-600 hover:bg-secondary-500 focus-visible:outline-secondary-600",
+  neutral: "bg-neutral-800 hover:bg-neutral-700 focus-visible:outline-neutral-800 dark:bg-neutral-200 dark:hover:bg-neutral-300 dark:text-neutral-900",
+} as const;
+
+const ghostStyles = {
+  primary: "text-primary-600 dark:text-primary-400",
+  secondary: "text-secondary-600 dark:text-secondary-400",
+  neutral: "text-neutral-900 dark:text-white",
+} as const;
 
 const socialsEntries = await getCollection("socials");
 const socials = socialsEntries
@@ -151,6 +165,19 @@ const socials = socialsEntries
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CTA -->
+    <div class="bg-white py-16 sm:py-20 dark:bg-neutral-900">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{ctaHeading}</h2>
+          <p class="mx-auto mt-6 max-w-xl text-lg/8 text-neutral-600 dark:text-neutral-400">{ctaDescription}</p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href={primaryHref} class:list={["rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2", filledStyles[primaryColor]]}>{primaryText}</a>
+            <a href={ghostHref} class:list={["text-sm/6 font-semibold", ghostStyles[ghostColor]]}>{ghostText} <span aria-hidden="true">&rarr;</span></a>
           </div>
         </div>
       </div>
