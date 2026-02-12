@@ -146,6 +146,15 @@ const nosotrosMission = defineCollection({
   }),
 });
 
+const nosotrosParallax = defineCollection({
+  loader: glob({ pattern: "parallax.md", base: "content/nosotros" }),
+  schema: z.object({
+    image: z.string(),
+    imageDark: z.string().optional(),
+    imageAlt: z.string().default(""),
+  }),
+});
+
 const nosotrosTeam = defineCollection({
   loader: glob({ pattern: "team.md", base: "content/nosotros" }),
   schema: z.object({
@@ -365,4 +374,4 @@ const servicios = defineCollection({
   }),
 });
 
-export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, socials, values, team, blog, aliados, legal, soporte, guias, normativas, servicios };
+export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosParallax, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, socials, values, team, blog, aliados, legal, soporte, guias, normativas, servicios };

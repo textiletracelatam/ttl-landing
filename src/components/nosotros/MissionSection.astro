@@ -4,9 +4,10 @@ import { getEntry } from "astro:content";
 const { intro, body, stats } = (await getEntry("nosotrosMission", "mission"))!.data;
 ---
 
-<div class="mx-auto mt-20 max-w-7xl px-6 pb-16 lg:px-8">
+<div class="bg-white dark:bg-neutral-900">
+<div class="mx-auto mt-20 max-w-7xl px-6 pb-16 lg:px-8 pt-10">
   <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-    <div class="grid max-w-xl grid-cols-1 gap-8 text-base/7 text-neutral-600 lg:max-w-none lg:grid-cols-2 dark:text-neutral-300">
+    <div class="grid max-w-xl grid-cols-1 gap-8 text-justify text-base/7 text-neutral-600 lg:max-w-none lg:grid-cols-2 dark:text-neutral-300">
       <div>
         <p>{intro}</p>
       </div>
@@ -23,4 +24,5 @@ const { intro, body, stats } = (await getEntry("nosotrosMission", "mission"))!.d
       ))}
     </dl>
   </div>
+</div>
 </div>

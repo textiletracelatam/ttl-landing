@@ -1,0 +1,20 @@
+---
+import { getEntry } from "astro:content";
+
+const { image, imageDark, imageAlt } = (await getEntry("nosotrosParallax", "parallax"))!.data;
+const darkImage = imageDark || image;
+---
+
+<div class="relative h-64 overflow-hidden sm:h-80 lg:h-96" role="img" aria-label={imageAlt}>
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-fixed dark:hidden"
+    style={`background-image: url('${image}')`}
+  >
+  </div>
+  <div
+    class="absolute inset-0 hidden bg-cover bg-center bg-fixed dark:block"
+    style={`background-image: url('${darkImage}')`}
+  >
+  </div>
+  <div class="absolute inset-0 bg-neutral-900/30"></div>
+</div>
