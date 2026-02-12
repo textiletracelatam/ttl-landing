@@ -3,7 +3,7 @@ title: Resolución 890 de 2023 — Etiquetado y composición de productos textil
 description: Regula el etiquetado obligatorio de composición, origen y cuidado en productos textiles y de confección.
 date: 2023-11-15
 category: [Comercial]
-region: [CO]
+region: [CO, US]
 order: 2
 ---
 

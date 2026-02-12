@@ -3,7 +3,7 @@ title: Resolución 1234 de 2024 — Trazabilidad de productos textiles
 description: Establece los requisitos mínimos de trazabilidad para la comercialización de productos textiles en Colombia.
 date: 2024-06-01
 category: [Ambiental]
-region: [CO]
+region: [CO, VE, BO]
 order: 1
 ---
 

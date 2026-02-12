@@ -96,7 +96,7 @@ const labels = regionDisplayLabels(normativa.data.region);
             </div>
             <div
               id="detail-map"
-              class="mx-auto mt-4 max-w-md [&_svg]:w-full [&_svg]:h-auto [&_path]:fill-neutral-300 dark:[&_path]:fill-neutral-700"
+              class="mx-auto mt-4 max-w-xs [&_svg]:w-full [&_svg]:h-auto [&_path]:fill-neutral-300 dark:[&_path]:fill-neutral-700"
               data-regions={JSON.stringify(resolvedRegions)}
             >
               <Fragment set:html={mapSvg} />

@@ -3,7 +3,7 @@ title: Decreto 567 de 2024 — Condiciones laborales en la industria textil
 description: Define estándares mínimos de condiciones laborales, seguridad y salud en el trabajo para el sector textil y de confección.
 date: 2024-03-20
 category: [Laboral]
-region: [CO]
+region: [CO, AR]
 order: 3
 ---
 
