@@ -16,48 +16,123 @@ const { Content } = await render(post);
 
 <Layout title={post.data.title}>
   <article class="bg-background pt-8 pb-24 sm:pt-12 sm:pb-32">
-    <div class="mx-auto max-w-4xl px-6 lg:px-8">
-      <!-- Header -->
-      <div class="mx-auto max-w-3xl text-center">
-        <div class="flex items-center justify-center gap-x-4 text-sm">
-          <time datetime={post.data.date.toISOString()} class="text-neutral-500 dark:text-neutral-400">
-            {post.data.date.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
-          </time>
-          <span class="rounded-full bg-primary-50 px-3 py-1 font-medium text-primary-700 dark:bg-primary-500/10 dark:text-primary-400">
-            {post.data.category}
-          </span>
-        </div>
-        <h1 class="mt-6 text-4xl font-semibold tracking-tight text-pretty text-neutral-900 sm:text-5xl dark:text-white">{post.data.title}</h1>
-        <p class="mt-4 text-lg/8 text-neutral-600 dark:text-neutral-400">{post.data.description}</p>
-        <p class="mt-4 text-sm font-semibold text-neutral-900 dark:text-white">{post.data.author}</p>
-      </div>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <!-- TOC + Content layout -->
+      <div class="flex flex-col mx-auto max-w-3xl lg:grid lg:max-w-none lg:grid-cols-[220px_1fr] lg:gap-12 xl:grid-cols-[260px_1fr]">
+        <!-- Sidebar TOC (desktop: sticky top sidebar, mobile: sticky bottom) -->
+        <nav id="toc-nav" class="order-last sticky bottom-2 z-30 mx-4 rounded-xl border-2 border-primary-500 bg-white/95 backdrop-blur-sm shadow-lg dark:border-primary-400 dark:bg-neutral-900/95 lg:order-none lg:sticky lg:top-20 lg:bottom-auto lg:z-auto lg:mx-0 lg:self-start lg:border lg:border-neutral-200 lg:bg-neutral-50 lg:shadow-none lg:backdrop-blur-none dark:lg:border-neutral-700 dark:lg:bg-neutral-800/50">
+          <button
+            id="toc-toggle"
+            type="button"
+            class="flex w-full items-center justify-between p-4 lg:pointer-events-none"
+          >
+            <h2 class="text-sm font-semibold text-primary-600 lg:text-xs lg:uppercase lg:tracking-wide lg:text-neutral-500 dark:text-primary-400 dark:lg:text-neutral-400">Contenido</h2>
+            <svg id="toc-chevron" class="size-5 text-primary-500 transition-transform duration-200 dark:text-primary-400 lg:hidden" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M14.77 12.79a.75.75 0 0 1-1.06-.02L10 8.832 6.29 12.77a.75.75 0 1 1-1.08-1.04l4.25-4.5a.75.75 0 0 1 1.08 0l4.25 4.5a.75.75 0 0 1-.02 1.06Z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <ul id="toc-list" class="hidden space-y-2 px-4 pb-4 text-sm max-h-[40vh] overflow-y-auto lg:block lg:mt-0 lg:max-h-[calc(100vh-8rem)]"></ul>
+        </nav>
 
-      <!-- Featured image -->
-      <div class="mt-12 overflow-hidden rounded-2xl">
-        <img src={post.data.image} alt={post.data.title} class:list={["w-full object-cover", post.data.imageDark && "dark:hidden"]} />
-        {post.data.imageDark && <img src={post.data.imageDark} alt={post.data.title} class="hidden w-full object-cover dark:block" />}
-      </div>
+        <!-- Main content -->
+        <div class="min-w-0">
+          <!-- Header -->
+          <div class="mb-12">
+            <a href="/blog" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver al blog</a>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-500/10 dark:text-primary-400">
+                {post.data.category}
+              </span>
+              <time datetime={post.data.date.toISOString()} class="text-sm text-neutral-500 dark:text-neutral-400">
+                {post.data.date.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
+              </time>
+            </div>
+            <h1 class="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-white">{post.data.title}</h1>
+            <p class="mt-4 text-lg/8 text-neutral-600 dark:text-neutral-400">{post.data.description}</p>
+            <p class="mt-4 text-sm font-semibold text-neutral-900 dark:text-white">{post.data.author}</p>
+          </div>
 
-      <!-- Content -->
-      <div class="prose prose-lg mx-auto mt-12 max-w-3xl text-justify dark:prose-invert prose-headings:text-neutral-900 dark:prose-headings:text-white prose-p:text-neutral-600 dark:prose-p:text-neutral-400 prose-a:text-primary-600 dark:prose-a:text-primary-400">
-        <Content />
-      </div>
+          <!-- Featured image -->
+          <div class="mb-12 overflow-hidden rounded-2xl">
+            <img src={post.data.image} alt={post.data.title} class:list={["w-full object-cover", post.data.imageDark && "dark:hidden"]} />
+            {post.data.imageDark && <img src={post.data.imageDark} alt={post.data.title} class="hidden w-full object-cover dark:block" />}
+          </div>
 
-      <!-- CTA -->
-      {post.data.ctaTitle && post.data.ctaMessage && post.data.ctaLink && (
-        <div class="mx-auto mt-16 max-w-3xl rounded-2xl bg-primary-50 px-8 py-12 text-center dark:bg-primary-500/10">
-          <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl dark:text-white">{post.data.ctaTitle}</h2>
-          <p class="mx-auto mt-4 max-w-xl text-base/7 text-neutral-600 dark:text-neutral-400">{post.data.ctaMessage}</p>
-          <div class="mt-8">
-            <a href={post.data.ctaLink} class="rounded-md bg-primary-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">{post.data.ctaButtonText}</a>
+          <!-- Content -->
+          <div id="blog-content" class="prose prose-lg max-w-none dark:prose-invert prose-headings:scroll-mt-20 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-p:text-justify prose-p:text-neutral-600 dark:prose-p:text-neutral-400 prose-a:text-primary-600 dark:prose-a:text-primary-400">
+            <Content />
+          </div>
+
+          <!-- CTA -->
+          {post.data.ctaTitle && post.data.ctaMessage && post.data.ctaLink && (
+            <div class="mt-16 rounded-2xl bg-primary-50 px-8 py-12 text-center dark:bg-primary-500/10">
+              <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 sm:text-3xl dark:text-white">{post.data.ctaTitle}</h2>
+              <p class="mx-auto mt-4 max-w-xl text-base/7 text-neutral-600 dark:text-neutral-400">{post.data.ctaMessage}</p>
+              <div class="mt-8">
+                <a href={post.data.ctaLink} class="rounded-md bg-primary-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">{post.data.ctaButtonText}</a>
+              </div>
+            </div>
+          )}
+
+          <!-- Back link -->
+          <div class="mt-12 mb-20 lg:mb-0">
+            <a href="/blog" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver al blog</a>
           </div>
         </div>
-      )}
-
-      <!-- Back link -->
-      <div class="mt-12 text-center">
-        <a href="/blog" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver al blog</a>
       </div>
     </div>
   </article>
+
+  <script>
+    function buildTOC() {
+      const content = document.getElementById("blog-content");
+      const tocList = document.getElementById("toc-list");
+      if (!content || !tocList) return;
+
+      const headings = content.querySelectorAll("h2, h3");
+      if (headings.length === 0) {
+        const nav = document.getElementById("toc-nav");
+        if (nav) nav.style.display = "none";
+        return;
+      }
+
+      headings.forEach((heading, i) => {
+        if (!heading.id) {
+          heading.id = `heading-${i}`;
+        }
+
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent;
+        a.className =
+          heading.tagName === "H3"
+            ? "block pl-3 text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-white"
+            : "block font-medium text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white";
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
+
+    buildTOC();
+
+    // TOC toggle (mobile)
+    const tocToggle = document.getElementById("toc-toggle");
+    const tocList = document.getElementById("toc-list");
+    const tocChevron = document.getElementById("toc-chevron");
+
+    tocToggle?.addEventListener("click", () => {
+      tocList?.classList.toggle("hidden");
+      tocList?.classList.toggle("lg:block");
+      tocChevron?.classList.toggle("rotate-180");
+    });
+
+    // Close TOC on mobile after clicking a link
+    tocList?.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a") && window.innerWidth < 1024) {
+        tocList.classList.add("hidden");
+        tocChevron?.classList.remove("rotate-180");
+      }
+    });
+  </script>
 </Layout>
