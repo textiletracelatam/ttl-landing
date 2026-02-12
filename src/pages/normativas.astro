@@ -43,8 +43,8 @@ const defaultColor = {
 
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
       <!-- World Map (sticky) -->
-      <div class="sticky top-14 z-10 bg-background pb-4 sm:top-16">
-        <div id="world-map-container" class="mx-auto max-w-3xl [&_svg]:w-full [&_svg]:h-auto [&_path]:fill-neutral-300 [&_path]:transition-[fill] [&_path]:duration-300 dark:[&_path]:fill-neutral-700">
+      <div class="sticky top-14 z-10 -mx-6 bg-background px-6 pb-4 shadow-[0_8px_6px_-6px] shadow-background sm:top-16 lg:-mx-8 lg:px-8">
+        <div id="world-map-container" class="mx-auto max-w-3xl [&_svg]:w-full [&_svg]:h-auto [&_path]:fill-neutral-300 [&_path]:transition-[fill] [&_path]:duration-300 [&_path]:cursor-pointer [&_path]:hover:fill-neutral-400 dark:[&_path]:fill-neutral-700 dark:[&_path]:hover:fill-neutral-500">
           <Fragment set:html={mapSvg} />
         </div>
       </div>
@@ -91,7 +91,9 @@ const defaultColor = {
 
 <script>
   const rows = document.querySelectorAll<HTMLDivElement>(".normativa-row");
-  let activeRow: HTMLDivElement | null = null;
+  const svg = document.querySelector<SVGSVGElement>("#world-map");
+  let activeRows: Set<HTMLDivElement> = new Set();
+  let activeCountry: string | null = null;
 
   function getRegions(row: HTMLDivElement): string[] {
     try {
@@ -115,30 +117,53 @@ const defaultColor = {
     });
   }
 
-  function clearHighlight() {
-    if (activeRow) {
-      activeRow.classList.remove("bg-primary-50", "dark:bg-primary-500/10");
-      setRegionFill(getRegions(activeRow), null);
-      activeRow = null;
+  function clearAll() {
+    activeRows.forEach((row) => {
+      row.classList.remove("bg-primary-50", "dark:bg-primary-500/10");
+      setRegionFill(getRegions(row), null);
+    });
+    activeRows.clear();
+    if (activeCountry) {
+      setRegionFill([activeCountry], null);
+      activeCountry = null;
     }
   }
 
-  function highlightRow(row: HTMLDivElement) {
-    clearHighlight();
-    activeRow = row;
-    row.classList.add("bg-primary-50", "dark:bg-primary-500/10");
-    setRegionFill(getRegions(row), "var(--color-primary-500)");
-  }
-
+  // Click a normativa row → highlight it + its regions on the map
   rows.forEach((row) => {
     row.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
-      if (target.closest("a")) return;
+      if ((e.target as HTMLElement).closest("a")) return;
 
-      if (activeRow === row) {
-        clearHighlight();
-      } else {
-        highlightRow(row);
+      const wasActive = activeRows.has(row);
+      clearAll();
+      if (!wasActive) {
+        activeRows.add(row);
+        row.classList.add("bg-primary-50", "dark:bg-primary-500/10");
+        setRegionFill(getRegions(row), "var(--color-primary-500)");
+      }
+    });
+  });
+
+  // Click a country on the map → highlight it + matching normativas
+  svg?.addEventListener("click", (e) => {
+    const target = e.target as SVGElement;
+    const pathOrGroup = target.closest<SVGElement>("path[id], g[id]");
+    if (!pathOrGroup) return;
+
+    const countryId = pathOrGroup.id.toLowerCase();
+    const wasSame = activeCountry === countryId;
+
+    clearAll();
+    if (wasSame) return;
+
+    activeCountry = countryId;
+    setRegionFill([countryId], "var(--color-primary-500)");
+
+    rows.forEach((row) => {
+      const regions = getRegions(row);
+      if (regions.includes(countryId)) {
+        activeRows.add(row);
+        row.classList.add("bg-primary-50", "dark:bg-primary-500/10");
       }
     });
   });

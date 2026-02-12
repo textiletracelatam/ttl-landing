@@ -47,14 +47,25 @@ const labels = regionDisplayLabels(normativa.data.region);
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <!-- TOC + Content layout -->
       <div class="mx-auto max-w-3xl lg:grid lg:max-w-none lg:grid-cols-[220px_1fr] lg:gap-12 xl:grid-cols-[260px_1fr]">
-        <!-- Sidebar TOC -->
-        <nav id="toc-nav" class="mb-8 rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800/50 lg:sticky lg:top-20 lg:mb-0 lg:self-start">
-          <h2 class="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Contenido</h2>
-          <ul id="toc-list" class="mt-3 space-y-2 text-sm"></ul>
-        </nav>
+        <!-- Sidebar TOC (desktop: sticky sidebar, mobile: fixed bottom panel) -->
+        <div class="contents lg:block">
+          <nav id="toc-nav" class="fixed bottom-4 left-4 right-4 z-30 rounded-xl border-2 border-primary-500 bg-white/95 backdrop-blur-sm shadow-lg transition-opacity duration-200 dark:border-primary-400 dark:bg-neutral-900/95 lg:static lg:sticky lg:top-20 lg:bottom-auto lg:left-auto lg:right-auto lg:z-auto lg:self-start lg:border lg:border-neutral-200 lg:bg-neutral-50 lg:shadow-none lg:backdrop-blur-none dark:lg:border-neutral-700 dark:lg:bg-neutral-800/50">
+            <button
+              id="toc-toggle"
+              type="button"
+              class="flex w-full items-center justify-between p-4 lg:pointer-events-none"
+            >
+              <h2 class="text-sm font-semibold text-primary-600 lg:text-xs lg:uppercase lg:tracking-wide lg:font-semibold lg:text-neutral-500 dark:text-primary-400 dark:lg:text-neutral-400">Contenido</h2>
+              <svg id="toc-chevron" class="size-5 text-primary-500 transition-transform duration-200 dark:text-primary-400 lg:hidden" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M14.77 12.79a.75.75 0 0 1-1.06-.02L10 8.832 6.29 12.77a.75.75 0 1 1-1.08-1.04l4.25-4.5a.75.75 0 0 1 1.08 0l4.25 4.5a.75.75 0 0 1-.02 1.06Z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <ul id="toc-list" class="hidden space-y-2 px-4 pb-4 text-sm max-h-[40vh] overflow-y-auto lg:block lg:mt-0 lg:max-h-[calc(100vh-8rem)]"></ul>
+          </nav>
+        </div>
 
         <!-- Main content -->
-        <div class="min-w-0">
+        <div class="min-w-0 pb-20 lg:pb-0">
           <!-- Header -->
           <div class="mb-12">
             <a href="/normativas" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver a normativas</a>
@@ -138,6 +149,41 @@ const labels = regionDisplayLabels(normativa.data.region);
     }
 
     buildTOC();
+
+    // TOC toggle (mobile)
+    const tocToggle = document.getElementById("toc-toggle");
+    const tocList = document.getElementById("toc-list");
+    const tocChevron = document.getElementById("toc-chevron");
+
+    tocToggle?.addEventListener("click", () => {
+      tocList?.classList.toggle("hidden");
+      tocList?.classList.toggle("lg:block");
+      tocChevron?.classList.toggle("rotate-180");
+    });
+
+    // Close TOC on mobile after clicking a link
+    tocList?.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a") && window.innerWidth < 1024) {
+        tocList.classList.add("hidden");
+        tocChevron?.classList.remove("rotate-180");
+      }
+    });
+
+    // Hide mobile TOC when footer is visible
+    const tocNav = document.getElementById("toc-nav");
+    const footer = document.querySelector("footer");
+    if (tocNav && footer) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (window.innerWidth < 1024) {
+            tocNav.classList.toggle("opacity-0", entry.isIntersecting);
+            tocNav.classList.toggle("pointer-events-none", entry.isIntersecting);
+          }
+        },
+        { threshold: 0 }
+      );
+      observer.observe(footer);
+    }
 
     // Highlight regions on the detail map
     const mapContainer = document.getElementById("detail-map");
