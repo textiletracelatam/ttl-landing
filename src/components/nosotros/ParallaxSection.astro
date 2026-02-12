@@ -1,20 +1,32 @@
 ---
 import { getEntry } from "astro:content";
 
-const { image, imageDark, imageAlt } = (await getEntry("nosotrosParallax", "parallax"))!.data;
-const darkImage = imageDark || image;
+const { image, imageDark, imageMobile, imageMobileDark, imageAlt } = (await getEntry("nosotrosParallax", "parallax"))!.data;
+const dark = imageDark || image;
+const mobile = imageMobile || image;
+const mobileDark = imageMobileDark || imageMobile || dark;
 ---
 
 <div class="relative h-64 overflow-hidden sm:h-80 lg:h-96" role="img" aria-label={imageAlt}>
+  <!-- Desktop light -->
   <div
-    class="absolute inset-0 bg-cover bg-center bg-fixed dark:hidden"
+    class="absolute inset-0 hidden bg-cover bg-center bg-fixed sm:block dark:hidden"
     style={`background-image: url('${image}')`}
-  >
-  </div>
+  ></div>
+  <!-- Desktop dark -->
   <div
-    class="absolute inset-0 hidden bg-cover bg-center bg-fixed dark:block"
-    style={`background-image: url('${darkImage}')`}
-  >
-  </div>
+    class="absolute inset-0 hidden bg-cover bg-center bg-fixed dark:sm:block"
+    style={`background-image: url('${dark}')`}
+  ></div>
+  <!-- Mobile light -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-fixed sm:hidden dark:hidden"
+    style={`background-image: url('${mobile}')`}
+  ></div>
+  <!-- Mobile dark -->
+  <div
+    class="absolute inset-0 hidden bg-cover bg-center bg-fixed dark:block dark:sm:hidden"
+    style={`background-image: url('${mobileDark}')`}
+  ></div>
   <div class="absolute inset-0 bg-neutral-900/30"></div>
 </div>

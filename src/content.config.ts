@@ -151,6 +151,8 @@ const nosotrosParallax = defineCollection({
   schema: z.object({
     image: z.string(),
     imageDark: z.string().optional(),
+    imageMobile: z.string().optional(),
+    imageMobileDark: z.string().optional(),
     imageAlt: z.string().default(""),
   }),
 });
