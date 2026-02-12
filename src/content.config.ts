@@ -337,6 +337,18 @@ const guias = defineCollection({
   }),
 });
 
+const normativas = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "content/normativas" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    category: z.array(z.string()),
+    region: z.array(z.string()),
+    order: z.number(),
+  }),
+});
+
 const servicios = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "content/servicios" }),
   schema: z.object({
@@ -353,4 +365,4 @@ const servicios = defineCollection({
   }),
 });
 
-export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, socials, values, team, blog, aliados, legal, soporte, guias, servicios };
+export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosTeam, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, socials, values, team, blog, aliados, legal, soporte, guias, normativas, servicios };

@@ -1,0 +1,157 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+import { readFileSync } from "node:fs";
+import { resolveRegions, regionDisplayLabels } from "../../regions";
+
+export async function getStaticPaths() {
+  const normativas = await getCollection("normativas");
+  return normativas.map((normativa) => ({
+    params: { id: normativa.id },
+    props: { normativa },
+  }));
+}
+
+const { normativa } = Astro.props;
+const { Content } = await render(normativa);
+
+const categoryColors: Record<string, { bg: string; text: string }> = {
+  Ambiental: {
+    bg: "bg-emerald-50 dark:bg-emerald-500/10",
+    text: "text-emerald-700 dark:text-emerald-400",
+  },
+  Laboral: {
+    bg: "bg-blue-50 dark:bg-blue-500/10",
+    text: "text-blue-700 dark:text-blue-400",
+  },
+  Comercial: {
+    bg: "bg-amber-50 dark:bg-amber-500/10",
+    text: "text-amber-700 dark:text-amber-400",
+  },
+};
+
+const defaultColor = {
+  bg: "bg-neutral-50 dark:bg-neutral-500/10",
+  text: "text-neutral-700 dark:text-neutral-400",
+};
+
+const categories = normativa.data.category;
+
+const mapSvg = readFileSync("public/world-map.svg", "utf-8");
+const resolvedRegions = resolveRegions(normativa.data.region);
+const labels = regionDisplayLabels(normativa.data.region);
+---
+
+<Layout title={normativa.data.title}>
+  <article class="bg-background pt-8 pb-24 sm:pt-12 sm:pb-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <!-- TOC + Content layout -->
+      <div class="mx-auto max-w-3xl lg:grid lg:max-w-none lg:grid-cols-[220px_1fr] lg:gap-12 xl:grid-cols-[260px_1fr]">
+        <!-- Sidebar TOC -->
+        <nav id="toc-nav" class="mb-8 rounded-xl border border-neutral-200 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800/50 lg:sticky lg:top-20 lg:mb-0 lg:self-start">
+          <h2 class="text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Contenido</h2>
+          <ul id="toc-list" class="mt-3 space-y-2 text-sm"></ul>
+        </nav>
+
+        <!-- Main content -->
+        <div class="min-w-0">
+          <!-- Header -->
+          <div class="mb-12">
+            <a href="/normativas" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver a normativas</a>
+            <div class="mt-6 flex flex-wrap items-center gap-3">
+              {categories.map((cat) => {
+                const color = categoryColors[cat] || defaultColor;
+                return (
+                  <span class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${color.bg} ${color.text}`}>
+                    {cat}
+                  </span>
+                );
+              })}
+              <time datetime={normativa.data.date.toISOString()} class="text-sm text-neutral-500 dark:text-neutral-400">
+                {normativa.data.date.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" })}
+              </time>
+            </div>
+            <h1 class="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl dark:text-white">{normativa.data.title}</h1>
+            <p class="mt-4 text-lg/8 text-neutral-600 dark:text-neutral-400">{normativa.data.description}</p>
+          </div>
+
+          <!-- Region map -->
+          <div class="mb-12">
+            <h2 class="text-center text-xs font-semibold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Aplica en</h2>
+            <div class="mt-2 flex flex-wrap justify-center gap-2">
+              {labels.map((label) => (
+                <span class="inline-flex items-center rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-500/10 dark:text-primary-400">
+                  {label}
+                </span>
+              ))}
+            </div>
+            <div
+              id="detail-map"
+              class="mx-auto mt-4 max-w-md [&_svg]:w-full [&_svg]:h-auto [&_path]:fill-neutral-300 dark:[&_path]:fill-neutral-700"
+              data-regions={JSON.stringify(resolvedRegions)}
+            >
+              <Fragment set:html={mapSvg} />
+            </div>
+          </div>
+
+          <div id="normativa-content" class="prose prose-lg max-w-none dark:prose-invert prose-headings:scroll-mt-20 prose-headings:text-neutral-900 dark:prose-headings:text-white prose-p:text-justify prose-p:text-neutral-600 dark:prose-p:text-neutral-400 prose-a:text-primary-600 dark:prose-a:text-primary-400">
+            <Content />
+          </div>
+
+          <div class="mt-12">
+            <a href="/normativas" class="text-sm/6 font-semibold text-primary-600 dark:text-primary-400">&larr; Volver a normativas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <script>
+    function buildTOC() {
+      const content = document.getElementById("normativa-content");
+      const tocList = document.getElementById("toc-list");
+      if (!content || !tocList) return;
+
+      const headings = content.querySelectorAll("h2, h3");
+      if (headings.length === 0) {
+        const nav = document.getElementById("toc-nav");
+        if (nav) nav.style.display = "none";
+        return;
+      }
+
+      headings.forEach((heading, i) => {
+        if (!heading.id) {
+          heading.id = `heading-${i}`;
+        }
+
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = `#${heading.id}`;
+        a.textContent = heading.textContent;
+        a.className =
+          heading.tagName === "H3"
+            ? "block pl-3 text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-white"
+            : "block font-medium text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white";
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
+
+    buildTOC();
+
+    // Highlight regions on the detail map
+    const mapContainer = document.getElementById("detail-map");
+    if (mapContainer) {
+      const regions: string[] = JSON.parse(mapContainer.dataset.regions || "[]");
+      const svg = mapContainer.querySelector("svg");
+      if (svg && regions.length) {
+        const selector = regions
+          .map((r) => `#${CSS.escape(r)}, #${CSS.escape(r)} path`)
+          .join(", ");
+        svg.querySelectorAll<SVGElement>(selector).forEach((p) => {
+          p.style.fill = "var(--color-primary-500)";
+        });
+      }
+    }
+  </script>
+</Layout>
