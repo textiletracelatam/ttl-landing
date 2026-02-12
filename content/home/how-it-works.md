@@ -1,5 +1,5 @@
 ---
-tagline: "Simple y efectivo"
+tagline: "Humano, claro y efectivo"
 heading: "Cómo funciona"
 steps:
   - step: 1
