@@ -9,7 +9,7 @@ category: "Sostenibilidad"
 ctaTitle: "¿Quieres habilitar la circularidad en tus productos?"
 ctaMessage: "Te ayudamos a estructurar la información de tus productos para que acompañen todo su ciclo de vida a través de pasaportes digitales."
 ctaButtonText: "Solicitar una demo"
-ctaLink: "#"
+ctaLink: "https://textiletracelatam.com/contactanos/"
 ---
 
 Durante décadas, la mayoría de los sistemas productivos han seguido un modelo lineal: extraer, producir, usar y desechar. Este enfoque ha permitido un crecimiento acelerado, pero también ha generado una presión enorme sobre los recursos naturales, los ecosistemas y el clima.
