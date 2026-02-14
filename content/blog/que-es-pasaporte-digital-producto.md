@@ -9,7 +9,7 @@ category: "Trazabilidad"
 ctaTitle: "¿Quieres crear el Pasaporte Digital de tu producto?"
 ctaMessage: "Te ayudamos a diseñar pasaportes digitales que combinan cumplimiento normativo con la historia real de tu marca."
 ctaButtonText: "Solicitar una demo"
-ctaLink: "#"
+ctaLink: "https://textiletracelatam.com/contactanos/"
 ---
 
 Imagina que tomas una prenda, un accesorio o cualquier producto y, con solo escanear un código, puedes conocer toda su historia: de dónde viene, quién lo hizo, con qué materiales, bajo qué estándares ambientales y sociales, y cómo cuidarlo o reciclarlo al final de su vida útil. Eso es, en esencia, un Pasaporte Digital de Producto (DPP, por sus siglas en inglés).
