@@ -1,6 +1,6 @@
 ---
-title: "Transparencia radical"
+title: "Transparencia"
 order: 1
 ---
 
-Cada afirmación debe ser verificable. Construimos sistemas que hacen los datos de la cadena de suministro accesibles, auditables y confiables — sin greenwashing, sin pasos ocultos.
+Construimos sistemas que hacen los datos accesibles, auditables y confiables, sin greenwashing, sin pasos ocultos. Presentamos esta información de forma clara tanto a consumidores como a autoridades.
