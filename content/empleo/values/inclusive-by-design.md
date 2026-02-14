@@ -1,6 +1,6 @@
 ---
-title: "Inclusión por diseño"
+title: "Apasionados por las historias"
 order: 4
 ---
 
-Desde pequeños productores de algodón hasta grandes fabricantes, nuestra plataforma está diseñada para ser accesible en cada nivel de la cadena de suministro — no solo para los actores más grandes.
+Desde pequeños productores de algodón hasta grandes fabricantes, nuestras plataformas están pensadas para dar visibilidad a todos, porque cada historia importa, sin importar el tamaño.
