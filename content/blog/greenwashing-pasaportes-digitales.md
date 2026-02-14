@@ -9,7 +9,7 @@ category: "Sostenibilidad"
 ctaTitle: "¿Quieres comunicar sostenibilidad con evidencia real?"
 ctaMessage: "Nuestros pasaportes digitales te permiten respaldar cada afirmación con datos verificables. Deja atrás el greenwashing."
 ctaButtonText: "Solicitar una demo"
-ctaLink: "#"
+ctaLink: "https://textiletracelatam.com/contactanos/"
 ---
 
 ## ¿Qué es, por qué es peligroso y cómo los Pasaportes Digitales lo combaten?"
