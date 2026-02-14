@@ -9,7 +9,7 @@ category: "Trazabilidad"
 ctaTitle: "¿Listo para implementar trazabilidad en tu cadena de valor?"
 ctaMessage: "Diseñamos sistemas de trazabilidad pensados para pasaportes digitales. Acompañamos a tu empresa paso a paso hacia la transparencia."
 ctaButtonText: "Solicitar una demo"
-ctaLink: "#"
+ctaLink: "https://textiletracelatam.com/contactanos/"
 ---
 
 En un mundo donde los consumidores, las autoridades y los mercados exigen cada vez más transparencia, hay una palabra que se vuelve central para las empresas: **trazabilidad**.
