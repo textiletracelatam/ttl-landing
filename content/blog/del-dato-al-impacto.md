@@ -9,7 +9,7 @@ category: "Tecnología"
 ctaTitle: "¿Listo para transformar tus datos en valor?"
 ctaMessage: "Acompañamos a tu empresa para que sus pasaportes digitales no sean solo una obligación, sino una herramienta estratégica."
 ctaButtonText: "Solicitar una demo"
-ctaLink: "#"
+ctaLink: "https://textiletracelatam.com/contactanos/"
 ---
 
 ## ¿Cómo convertir información en valor con un Pasaporte Digital?
