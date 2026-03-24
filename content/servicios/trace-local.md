@@ -5,7 +5,7 @@ monthlyPrice: ""
 annualPrice: ""
 cta: Más información
 linkText: "Ver demo"
-linkHref: "https://dpp.textiletracelatam.com/?id=69"
+linkHref: "https://dp=69"
 order: 2
 features:
   - Pasaporte digital de producto (DPP)
