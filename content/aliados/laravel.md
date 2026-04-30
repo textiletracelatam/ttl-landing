@@ -1,4 +1,4 @@
-// ---
+---
 name: Laravel
 logo: https://tailwindcss.com/plus-assets/img/logos/158x48/laravel-logo-gray-900.svg
 logoDark: https://tailwindcss.com/plus-assets/img/logos/158x48/laravel-logo-white.svg
