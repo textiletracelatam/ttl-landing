@@ -6,7 +6,7 @@ image: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%2
 imageDark: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/blog%20images/info%20dpp.png"
 imageAlt: "Información DPP"
 stats:
-  - value: "Historia"
+  - value: "Historia viva"
     label: "Nos centramos en contar la historia viva de tu producto"
   - value: "Diferentes planes"
     label: "Tenemos planes según la necesidad y tamaño de tu empresa"
