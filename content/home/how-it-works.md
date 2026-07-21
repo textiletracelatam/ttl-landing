@@ -4,11 +4,14 @@ heading: "Cómo funciona"
 steps:
   - step: 1
     title: "Cuenta la historia de tu producto"
-    description: "Da vida a tus productos mostrando quién los hace, de dónde vienen sus materiales y qué los hace únicos. Convierte la información en una experiencia transparente que conecta con clientes y consumidores."
+    description: "Da vida a tus productos mostrando quién los hace, de dónde vienen sus materiales y qué los hace únicos. Convierte la información en una experiencia transparente que conecta con tus clientes."
   - step: 2
-    title: "Conecta tu cadena y captura datos verificados"
-    description: "Invita a proveedores de todos los niveles a unirse a la plataforma. Nuestra incorporación guiada facilita que incluso los productores más pequeños compartan datos. Recopilamos materiales, procesos y certificaciones, vinculando toda la información al producto."
+    title: "Creamos tu Pasaporte Digital de Producto"
+    description: "Nuestro equipo estructura, organiza y transforma tu información en un Pasaporte Digital de Producto interactivo, alineado con los estándares internacionales."
   - step: 3
-    title: "Generamos tus Pasaportes Digitales de Producto"
-    description: "Nos encargamos de crear Pasaportes Digitales de Producto completos y listos para compartir con reguladores, clientes y consumidores — impulsando confianza, cumplimiento y nuevas oportunidades circulares."
+    title: "Recibe tu Pasaporte y código QR"
+    description: "Nosotros nos encargamos del resto, recibe tu pasaporte con un código QR único, listo para compartir con reguladores, clientes y aliados; así puedes comunicar transparencia y generar nuevas oportunidades de valor."
+     - step: 4
+    title: "Sácale el máximo provecho a tu DPP"
+    description: "Actualiza tu Pasaporte Digital cuando lo necesites y aprovecha todas las oportunidades que ofrece para comunicar, conectar y acompañar a tus clientes más allá del punto de venta."
 ---
