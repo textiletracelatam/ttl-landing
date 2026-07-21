@@ -446,4 +446,4 @@ const servicios = defineCollection({
   }),
 });
 
-export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosParallax, nosotrosTeam, nosotrosContact, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, contactanosCta, contactanosHero, contactanosInfo, contactanosCards, socials, values, team, blog, aliados, legal, soporte, guias, normativas, servicios };
+export const collections = { homeHero, homeTrust, homeFeatures, homeHowItWorks, homeMission, homeBlog, homeCta, nosotrosHero, nosotrosMission, nosotrosParallax, nosotrosTeam, nosotrosContact, nosotrosWhyUs, empleoHero, empleoWhyJoin, empleoValuesIntro, empleoCta, aliadosHero, aliadosForm, aliadosCta, contactanosCta, contactanosHero, contactanosInfo, contactanosCards, socials, values, team, blog, aliados, legal, soporte, guias, normativas, servicios };
