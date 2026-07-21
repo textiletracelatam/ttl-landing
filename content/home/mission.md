@@ -7,11 +7,11 @@ imageDark: "https://zqjtorjrxmxhbsskrxxu.supabase.co/storage/v1/object/public/bl
 imageAlt: "Información DPP"
 stats:
   - value: "Historia viva"
-    label: "Nos centramos en contar la historia viva de tu producto"
+    label: "Nos centramos en contar la historia viva de tu producto."
   - value: "Diferentes planes"
-    label: "Tenemos planes según la necesidad y tamaño de tu empresa"
+    label: "Tenemos planes según la necesidad y tamaño de tu empresa."
   - value: "100% Colombiano"
-    label: "Ajustamos nuestra solución a las necesidades y el contexto latinoamericano"
+    label: "Ajustamos nuestra solución a las necesidades y el contexto latinoamericano."
   - value: "Colombia y Latinoamérica"
-    label: "Apoyamos la sostenibilidad en todo el territorio"
+    label: "Apoyamos la sostenibilidad en todo el territorio."
 ---
