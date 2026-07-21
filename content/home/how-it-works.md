@@ -11,7 +11,7 @@ steps:
   - step: 3
     title: "Recibe tu Pasaporte y código QR"
     description: "Nosotros nos encargamos del resto, recibe tu pasaporte con un código QR único, listo para compartir con reguladores, clientes y aliados; así puedes comunicar transparencia y generar nuevas oportunidades de valor."
-     - step: 4
+  - step: 4
     title: "Sácale el máximo provecho a tu DPP"
     description: "Actualiza tu Pasaporte Digital cuando lo necesites y aprovecha todas las oportunidades que ofrece para comunicar, conectar y acompañar a tus clientes más allá del punto de venta."
 ---
