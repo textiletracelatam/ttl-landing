@@ -181,6 +181,20 @@ const nosotrosContact = defineCollection({
   }),
 });
 
+const nosotrosWhyUs = defineCollection({
+  loader: glob({ pattern: "why-us.md", base: "content/nosotros" }),
+  schema: z.object({
+    tagline: z.string(),
+    heading: z.string(),
+    reasons: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ),
+  }),
+});
+
 const empleoHero = defineCollection({
   loader: glob({ pattern: "hero.md", base: "content/empleo" }),
   schema: z.object({
