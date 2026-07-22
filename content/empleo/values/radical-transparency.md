@@ -3,4 +3,4 @@ title: "Transparencia"
 order: 1
 ---
 
-Construimos sistemas que hacen los datos accesibles, auditables y confiables, sin greenwashing, sin pasos ocultos. Presentamos esta información de forma clara tanto a consumidores como a autoridades.
+Creemos que la confianza nace de la transparencia. Por eso desarrollamos soluciones que hacen la información accesible, confiable y comprensible para consumidores, empresas y autoridades.
