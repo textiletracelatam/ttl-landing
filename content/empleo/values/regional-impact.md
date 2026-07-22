@@ -1,6 +1,6 @@
 ---
-title: "Impacto regional"
-order: 2
+title: "Innovación con propósito"
+order: 3
 ---
 
-La industria textil de América Latina tiene fortalezas y desafíos únicos. Diseñamos nuestras herramientas para adaptarse a la infraestructura, los idiomas y el panorama regulatorio de la región.
+Creemos que Latinoamérica necesita soluciones diseñadas para su propia realidad. Por eso desarrollamos herramientas que responden a los desafíos, oportunidades y necesidades de la industria textil de la región, integrando estándares internacionales con un enfoque local.
