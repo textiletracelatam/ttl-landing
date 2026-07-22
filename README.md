@@ -1,3 +1,20 @@
+# landing ttl
+
+1. bun i
+2. bun run dev
+3. abrir el local host
+4. http://localhost:4321/
+5. cambio lo que tenga que cambiar
+6. le doy control s
+7. luego de haber hecho los cambios abro la pestaña de git las ramitas con bolitas a la izquierda
+8. le hago clic a los cambios 
+9. los reviso 
+10. si estan bien le doy + 
+11. en mensaje s le escribo que hice
+12. y commit
+13. y sincronizar
+
+
 # Astro Starter Kit: Minimal
 
 ```sh
