@@ -14,7 +14,19 @@
 12. y commit
 13. y sincronizar
 
-
+<div class="flex (este sirve para distribuir) w-full (este sirve para ancho completo) bg-red-500">
+    <div class="w-10 bg-black">hola</div>
+    <div class="flex-1 grid grid-cols-5 gap-2 p-2 bg-primary-200 m-10 border border-secondary-500 border-10 rounded-md text-white">
+      <div>yo</div>
+      <div>estoy</div>
+      <div>aprendiendo</div>
+      <div>equis</div> 
+      <div>de</div>
+      <div>ja</div>
+      <div>ja</div>
+    </div>
+    
+  </div>
 # Astro Starter Kit: Minimal
 
 ```sh
