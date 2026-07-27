@@ -1,40 +1,42 @@
 ---
-name: Trace Local
-description: Un DPP ideal para las marcas que quieren mostrar la historia detrás de sus productos. Incluyendo la posibilidad de mejora a Trace Export cuando quieran exportar.
+name: Trace Core
+description: Un DPP ideal para las marcas que quieren mostrar la historia detrás de sus productos y cumplir con las normativas exigidas para exportar a la unión europea.
 monthlyPrice: ""
 annualPrice: ""
 cta: Más información
-linkText: "Ver demo"
-linkHref: "https://dp=69"
+linkText: "Hablar con un asesor"
+linkHref: "https://textiletracelatam.com/contactanos/"
 order: 2
 features:
-  - Pasaporte digital de producto (DPP)
-  - Trazabilidad de origen local
-  - Analíticas básicas
-  - Soporte en 48 horas
-  - Mejora a Trace Export disponible
+  - Creado para marcas en expansión y colecciones de mayor volumen que buscan una forma práctica de gestionar la información de sus productos, fortalecer su transparencia y construir una trazabilidad preparada para crecer junto con su operación.
 ---
 
-## ¿Qué es Trace Local?
+## ¿Qué es Trace Core?
 
-Trace Local es nuestra solución de trazabilidad pensada para marcas que operan en el mercado latinoamericano y desean contar la historia detrás de sus productos. Incluye la posibilidad de escalar a Trace Export cuando decidas exportar.
+Trace core es nuestra solución para marcas que han superado la etapa de las producciones limitadas y necesitan una forma sencilla de organizar la información de un mayor número de productos.
+
+A través de un Pasaporte Digital de Producto, centralizas la información más importante de cada referencia y construyes una base sólida de trazabilidad que fortalece la confianza de tus clientes y prepara a tu empresa para los nuevos desafíos del mercado.
 
 ## ¿Para quién es?
 
-- Marcas locales que valoran la transparencia con sus consumidores.
-- Empresas en crecimiento que planean exportar en el futuro.
-- Negocios que quieren diferenciarse con trazabilidad sin la complejidad de normativas internacionales.
+- Marcas con colecciones permanentes o temporadas de mayor volumen.
+- Empresas que gestionan múltiples referencias de producto.
+- Marcas que buscan organizar la información de sus productos de forma más eficiente.
+- Empresas que desean fortalecer su transparencia sin aumentar la complejidad de sus procesos.
+- Marcas que quieren prepararse para futuros requerimientos de trazabilidad y mercados internacionales.
 
 ## ¿Cómo funciona?
 
-1. **Registro simplificado:** Documenta el origen y proceso de tus productos de forma ágil.
-2. **Pasaporte digital:** Genera un DPP con código QR para que tus clientes conozcan la historia de cada producto.
-3. **Analíticas:** Accede a métricas básicas sobre el uso y consulta de tus pasaportes digitales.
-4. **Escalabilidad:** Cuando estés listo para exportar, mejora tu plan a Trace Export sin perder datos.
+Nuestro equipo te acompaña durante todo el proceso para que puedas implementar tus primeros Pasaportes Digitales de Producto de forma sencilla.
 
+1. **La historia de tu producto:** Reunimos la información que quieres comunicar sobre cada pieza, desde sus materiales y origen hasta los detalles que hacen única a tu marca.
+2. **Creamos tu Pasaporte Digital de Producto:** Nuestro equipo estructura, organiza y transforma tu información en un Pasaporte Digital de Producto interactivo, alineado con los estándares internacionales.
+3. **Recibe tu Pasaporte y código QR:** Cada producto recibe un código QR único para que tus clientes puedan descubrir la historia detrás de la pieza y conectar con tu marca de una forma diferente.
+4. **Sácale el máximo provecho a tu DPP:** Actualiza tu Pasaporte Digital cuando lo necesites y aprovecha todas las oportunidades que ofrece para comunicar, conectar y acompañar a tus clientes más allá del punto de venta.
 ## Beneficios clave
 
-- **Transparencia accesible** sin complejidad regulatoria.
-- **Conexión con el consumidor** a través de la historia de cada producto.
-- **Ruta de crecimiento** clara hacia mercados internacionales.
-- **Precio accesible** para marcas en etapa de crecimiento.
+- Organiza la información de un mayor volumen de productos de forma clara y estructurada.
+- Fortalece la confianza de tus clientes compartiendo información transparente y accesible.
+- Optimiza la gestión de tus colecciones con una base de información preparada para crecer.
+- Prepárate para responder a las nuevas exigencias de los mercados internacionales.
+- Construye una trazabilidad sólida sin añadir complejidad innecesaria a tu operación.

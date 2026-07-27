@@ -7,7 +7,7 @@ cta: Contactar ventas
 linkText: "Hablar con un asesor"
 linkHref: "/aliados"
 cardColor: black
-order: 3
+order: 4
 features:
   - Productos ilimitados
   - Trazabilidad completa de insumos
