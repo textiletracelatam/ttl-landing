@@ -1,26 +1,26 @@
 ---
-name: Trace Growth
+name: Trace Pro
 description: Un DPP ideal para las marcas que quieren mostrar la historia detrás de sus productos y cumplir con las normativas exigidas para exportar a la unión europea.
 monthlyPrice: "$"
 annualPrice: "$"
-cta: Contactar ventas
+cta: Más información
 linkText: "Hablar con un asesor"
 linkHref: "https://textiletracelatam.com/contactanos/"
-cardColor: black
+
 order: 3
 features:
   - Creado para marcas consolidadas que buscan aprovechar el Pasaporte Digital de Producto más allá del cumplimiento, utilizando la información para fortalecer su marca, generar confianza y prepararse para competir en mercados cada vez más exigentes.
 ---
 
-## ¿Qué es Trace Growth?
+## ¿Qué es Trace Pro?
 
-Trace Growth es nuestra solución diseñada para marcas que entienden que la trazabilidad no es solo una obligación, sino una oportunidad para diferenciarse.
+Trace Pro es nuestra solución diseñada para marcas que entienden que la trazabilidad no es solo una obligación, sino una oportunidad para diferenciarse.
 
 A través de un Pasaporte Digital de Producto, la información de cada producto se convierte en una herramienta para comunicar con transparencia, fortalecer la confianza de clientes y aliados comerciales, y respaldar el crecimiento de la marca con información estructurada y preparada para el futuro.
 
 ## ¿Para quién es?
 
-Trace Growth fue creado para marcas que quieren convertir la transparencia en parte de su propuesta de valor.
+Trace Pro fue creado para marcas que quieren convertir la transparencia en parte de su propuesta de valor.
 - Marcas consolidadas con un portafolio amplio de productos.
 - Empresas que buscan fortalecer la confianza de clientes y aliados comerciales.
 - Marcas que desean diferenciarse a través de la transparencia y la trazabilidad.
